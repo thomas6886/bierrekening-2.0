@@ -1,6 +1,9 @@
 #Webstorm
 .idea
 
+#Settings 
+settings.json
+
 # Logs
 logs
 *.log
