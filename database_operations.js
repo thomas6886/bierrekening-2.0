@@ -14,7 +14,7 @@ MEMBERS TABLE OPERATIONS
 
  */
 
-function createUser(username, password, voornaam, achternaam, email, profilepicture, iban, saldo){
+function createUser(username, password, voornaam, achternaam, email, profilepicture, iban){
     //TODO: ADD QUERY
 }
 
