@@ -1,31 +1,50 @@
 var mysql = require('mysql');
 var fs = require('fs');
-
+var exports = module.exports = {};
 //Load settings
 var settings = JSON.parse(fs.readFileSync('settings.json', 'utf8'));
 
-//Create connection pool
-function Connection() {
-    this.pool = null;
+//Create Pool  with settings
+var pool =  mysql.createPool({
+    //Use settings from settings.json file located in root of project
+    connectionLimit: settings.poolSize, //Max amount of simuultaneous connections - INT
+    host     : settings.database_host, //Address of database - STRING
+    user     : settings.database_user, //Database username - STRING
+    password : settings.database_passwd, //Database password - STRING
+    database : settings.database_name, //Database name - STRING
+    debug : settings.debug, //Whether debug should be enabled or not - BOOLEAN
+});
 
-    this.init = function() {
-        this.pool = mysql.createPool({
-            //Use settings from settings.json file located in root of project
-            connectionLimit: settings.poolSize, //Max amount of simuultaneous connections - INT
-            host     : settings.database_host, //Address of database - STRING
-            user     : settings.database_user, //Database username - STRING
-            password : settings.database_passwd, //Database password - STRING
-            database : settings.database_name, //Database name - STRING
-            debug : settings.debug, //Whether debug should be enabled or not - BOOLEAN
+exports.connection = {
+    query: function () {
+        var queryArgs = Array.prototype.slice.call(arguments),
+            events = [],
+            eventNameIndex = {};
+
+        pool.getConnection(function (err, conn) {
+            if (err) {
+                if (eventNameIndex.error) {
+                    eventNameIndex.error();
+                }
+            }
+            if (conn) {
+                var q = conn.query.apply(conn, queryArgs);
+                q.on('end', function () {
+                    conn.release();
+                });
+
+                events.forEach(function (args) {
+                    q.on.apply(q, args);
+                });
+            }
         });
-    };
 
-    this.acquire = function(callback) {
-        this.pool.getConnection(function(err, connection) {
-            callback(err, connection);
-        });
-    };
-    console.log("connection"+this.pool);
-}
-
-module.exports = new Connection();
+        return {
+            on: function (eventName, callback) {
+                events.push(Array.prototype.slice.call(arguments));
+                eventNameIndex[eventName] = callback;
+                return this;
+            }
+        };
+    }
+};
