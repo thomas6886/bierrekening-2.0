@@ -1,0 +1,9 @@
+extends layout
+block content
+    p Michael
+    p #{var_name}
+    form(method='post', action = '/michael/add')
+        #form-group
+            label Name:
+            input.form-control(name = 'name', type = 'text')
+        input.btn.btn-primary(type = 'submit', value='submit')
