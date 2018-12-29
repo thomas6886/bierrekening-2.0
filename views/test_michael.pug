@@ -1,0 +1,20 @@
+extends layout
+block content
+    p Michael
+    //p #{var_name}
+    //ul
+    //    each val in output_database
+    //        li = val
+
+    form(method='post', action = '/michael/add')
+        #form-group
+            label Vul hier je naam in:
+            input.form-control(name = 'name', type = 'text')
+        input.btn.btn-primary(type = 'submit', value='submit')
+
+    #demo
+        p Hier links moet de tijd staan
+    div.button
+        button(onclick="GetTime()", title="Give the time", class= "button")
+    script(src='/javascripts/michael.js')
+
