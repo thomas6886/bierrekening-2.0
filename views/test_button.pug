@@ -1,0 +1,22 @@
+extends layout
+block content
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    //was nodig omdat test_btton.js een fout gaf https://tecadmin.net/referenceerror-is-not-defined-javascript/
+    p Test button pug file
+        p #{test_word}
+        //  voor het gebruik van de variable
+        p #{words}
+        // kan ook een array zijn
+    ul
+        each val in words
+            li= val
+
+
+            // each value in de array words wordt doorheen gelooped met #{val} als waarde
+    each val in words
+        div
+            button.button(onclick="ButtonPressed(this)" ,type="switch") #{val}
+
+
+
+    script(src='/javascripts/test_button.js')
