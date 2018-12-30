@@ -2,6 +2,27 @@ extends layout
 block content
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     //was nodig omdat test_btton.js een fout gaf https://tecadmin.net/referenceerror-is-not-defined-javascript/
+
+
+    <progress value="0" max="10" id="progressBar"></progress>
+    div#info
+        p De tijd loopt
+    div#score
+        p 0
+
+            // each value in de array words wordt doorheen gelooped met #{val} als waarde
+    each val in words
+        div
+            button.button(onclick="ButtonPressed(this)" ,type="button", checked="false" )
+                p #{val}
+    <form action="/button/submit" method="post">
+    <input type="value" value="0">
+    <input type="submit" value="submit">
+    </form>
+    //form is bedoeld om de post request aan te sturen en zo de score mee te sturen
+
+
+
     p Test button pug file
         p #{test_word}
         //  voor het gebruik van de variable
@@ -10,13 +31,6 @@ block content
     ul
         each val in words
             li= val
-
-
-            // each value in de array words wordt doorheen gelooped met #{val} als waarde
-    each val in words
-        div
-            button.button(onclick="ButtonPressed(this)" ,type="switch") #{val}
-
 
 
     script(src='/javascripts/test_button.js')
