@@ -1,0 +1,19 @@
+extends layout
+block content
+    div.center.totalview
+        div.header
+           p.large 30 seconds game
+        div.info
+            p.large Score: #{score}
+            p The playing team number: #{team_playing}
+            p Team name: #{team_names}
+
+        form(method='post' action='/30seconds/submit')
+            div.form_box
+                p.large word 1
+                input(type="checkbox" name="button1" value="button1")
+                p.large word 2
+                input(type="checkbox" name="button2" value="button2" )
+                p
+                input(type="submit" value="submit")
+

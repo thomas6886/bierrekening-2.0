@@ -64,3 +64,22 @@
     height: 50px;
 }
 
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.totalview {
+    height:80vh;
+    width: 60vw;
+}
+
+p.large{
+    font-size: 5.4vw;
+}
+input[type=checkbox] {
+    transform: scale(2);
+}

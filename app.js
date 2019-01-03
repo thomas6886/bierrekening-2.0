@@ -12,6 +12,8 @@ var usersRouter = require('./routes/users');
 var strepenRouter = require('./routes/strepen');
 var michaelRouter = require('./routes/test_michael');
 var buttonRouter = require('./routes/test_button');
+var gameRouter = require('./routes/test_30seconds');
+
 
 var app = express();
 
@@ -31,8 +33,7 @@ app.use('/users', usersRouter);
 app.use('/strepen', strepenRouter);
 app.use('/michael', michaelRouter);
 app.use('/button', buttonRouter);
-
-
+app.use('/30seconds', gameRouter);
 
 
 // catch 404 and forward to error handler
