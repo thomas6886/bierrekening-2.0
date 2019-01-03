@@ -12,9 +12,9 @@ block content
         form(method='post' action='/30seconds/submit')
             div.form_box
                 each val in words
-                    div(style="margin-left: 25px;")
-                    p.button_word #{val}
-                    input.center_content(type="checkbox" name= val value="button" style="float: left;")
+                    div
+                    p.button_word.inner-div1  #{val}
+                    input.center_content.inner-div2(type="checkbox" name= val value="button")
                 br
                 br
                 input(type="submit" value="submit")
@@ -22,3 +22,12 @@ block content
         p#time_bar De tijd loopt
 
         script(src='/javascripts/test_30seconds.js')
+
+
+
+    <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+    p checkbox hier asdfjklasdjf fjaklj a
+    </label>
+    </div>

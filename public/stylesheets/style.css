@@ -88,3 +88,20 @@ p.button_word{
 .center_content{
     align-content: center;
 }
+
+.inner-div1 {
+    width: 150px;
+    margin-right:0px;
+    float:left;
+    background : #337ab7;
+    padding:3px 0px;
+    border: 3px;
+}
+.inner-div2 {
+    width: 150px;
+    margin-right:0px;
+    float:left;
+    background : #dd2c00;
+    padding:3px 0px;
+    border: 3px;
+}
