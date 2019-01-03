@@ -73,13 +73,18 @@
 }
 
 .totalview {
-    height:80vh;
+    height:85vh;
     width: 60vw;
 }
 
 p.large{
     font-size: 5.4vw;
 }
-input[type=checkbox] {
-    transform: scale(2);
+
+p.button_word{
+    font-size: 2vh;
+}
+
+.center_content{
+    align-content: center;
 }
