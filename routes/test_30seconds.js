@@ -17,20 +17,50 @@ select_words = function(rounds_played){
     return word_selection;
 }
 
+select_team_playing = function(Round,GameRoomId){
+
+};
+
 
 router.get('/', function (req, res, next) {
-    res.render('test_30seconds');
+    res.render('test_30seconds',{GameRoomId: "hop", Round: 0});
 });
 
 router.post('/submit', function (req, res, next) {
     var answer = req.body;
-    var score_extra = Object.keys(answer).length;
+    var score_extra = Object.keys(answer).length - 2;
     score[team_playing] = score[team_playing] +score_extra;
 
     if (team_playing == 2){
         team_playing = 0;}
         else{
             team_playing ++;
+    };
+    rounds_played ++;
+    console.log(answer);
+    console.log(score_extra);
+    console.log(team_playing);
+    console.log(score.length);
+    console.log(score);
+    console.log(rounds_played);
+    words = select_words(rounds_played);
+    console.log(words);
+    res.render('test_30seconds',{score: score,team_playing: team_playing,team_names: team_names,words:words});
+});
+
+
+//test met nextround waar gekeken wordt naar ronde nummer en gameroom
+router.post('/NextRound', function (req, res, next) {
+    var answer = req.body;
+    var score_extra = Object.keys(answer).length - 2;
+    var round_client = req.body.Round;
+    console.log(round_client);
+    score[team_playing] = score[team_playing] +score_extra;
+
+    if (team_playing == 2){
+        team_playing = 0;}
+    else{
+        team_playing ++;
     };
     rounds_played ++;
     console.log(answer);

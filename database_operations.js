@@ -27,6 +27,12 @@ exports.michael_test2 = function(text_form) {
     return output_database
 };
 
+exports.CreateGameRoom = function(GameRoomId) {
+    var sql = "INSERT INTO `test`( `text`) VALUES (?)";  // ? is plek van de variable
+    database.connection.query(sql, GameRoomId);   // var sql invoegen en combineren
+    console.log('function CreateGameRoom aangeroepen'); //test om te kijken of de functie werkt
+};
+
 
 function createUser(username, password, voornaam, achternaam, email, profilepicture, iban){
     //TODO: ADD QUERY
