@@ -1,0 +1,9 @@
+{
+  "database_host": "localhost",
+  "database_user": "root",
+  "database_passwd": "",
+  "database_name": "michael",
+  "poolSize": 20,
+  "debug": false
+
+}
