@@ -1,5 +1,3 @@
-var database = require('./database');
-var exports = module.exports = {};
 /*
 
 This file will contain all database operations, this way queries can be centralized and you won't end up with queries scattered through your code.
@@ -7,6 +5,20 @@ This file will contain all database operations, this way queries can be centrali
 PLEASE KEEP IT THIS WAY!!!!
 
  */
+
+var exports = module.exports = {};
+//USE DATABASE.JS TO CONNECTO TO DATABASE
+var database = require('./database');
+
+//QUERY BUILDER
+var sql = require('sql-query'), sqlQuery = sql.Query();
+//USED FOR SELECT COMMANDS:
+var sqlSelect = sqlQuery.select();
+//USED FOR INSERT COMMANDS:
+var sqlInsert = sqlQuery.insert();
+//USED FOR UPDATE COMMANDS:
+var sqlUpdate = sqlQuery.update()
+
 
 /*
 
@@ -19,13 +31,21 @@ exports.michael_test = function(text_form) {
     console.log('function aangeroepen'); //test om te kijken of de functie werkt
 };
 
+exports.createUser = function(username, password, voornaam, achternaam, email, profilepicture, iban){
+    let command = sqlInsert.into('members').set({USERNAME: username, PASSWORD: password, NAAM: voornaam, ACHTERNAAM: achternaam, EMAIL: email, PLAATJE: profilepicture, IBAN:iban, SALDO: 0}).build();
+    let output = database.connection.query(command);
+    console.log("createUser - " + output);
+};
 
-function createUser(username, password, voornaam, achternaam, email, profilepicture, iban){
-    //TODO: ADD QUERY
-}
-
-function getUserIDFromEmail(email){
-    //TODO: ADD QUERY
+exports.getUserIDFromEmail = function(email){
+    let command = sqlSelect.from('members').select('USERID').where({EMAIL: email}).build();
+    console.log("command: "+command);
+    database.connection.query(command).on('result', function(result){
+        console.log(result)
+        return result;
+    }).on('error', function(err){
+        console.log(err);
+    });
 }
 
 function getUserIDFromUsername(username){
