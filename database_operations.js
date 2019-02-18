@@ -13,9 +13,9 @@ var database = require('./database');
 //QUERY BUILDER
 var sql = require('sql-query'), sqlQuery = sql.Query();
 //USED FOR SELECT COMMANDS:
-var sqlSelect = sqlQuery.select();
+var sqlSelect;
 //USED FOR INSERT COMMANDS:
-var sqlInsert = sqlQuery.insert();
+var sqlInsert;
 //USED FOR UPDATE COMMANDS:
 var sqlUpdate = sqlQuery.update()
 
@@ -25,31 +25,49 @@ var sqlUpdate = sqlQuery.update()
 MEMBERS TABLE OPERATIONS
 
  */
-exports.michael_test = function(text_form) {
-    var sql = "INSERT INTO `test`( `text`) VALUES (?)";  // ? is plek van de variable
-    database.connection.query(sql, text_form);   // var sql invoegen en combineren
-    console.log('function aangeroepen'); //test om te kijken of de functie werkt
-};
 
 exports.createUser = function(username, password, voornaam, achternaam, email, profilepicture, iban){
+    sqlInsert = sqlQuery.insert();
     let command = sqlInsert.into('members').set({USERNAME: username, PASSWORD: password, NAAM: voornaam, ACHTERNAAM: achternaam, EMAIL: email, PLAATJE: profilepicture, IBAN:iban, SALDO: 0}).build();
-    let output = database.connection.query(command);
-    console.log("createUser - " + output);
+    database.connection.query(command);
 };
 
 exports.getUserIDFromEmail = function(email){
+    sqlSelect = sqlQuery.select();
     let command = sqlSelect.from('members').select('USERID').where({EMAIL: email}).build();
     console.log("command: "+command);
-    database.connection.query(command).on('result', function(result){
-        console.log(result)
-        return result;
+    database.connection.query(command).on('result', function(result){;
+        return result.USERID;
     }).on('error', function(err){
         console.log(err);
     });
 }
 
+exports.userID = function(){
+    return {
+        getFromEmail: function(email){
+            sqlSelect = sqlQuery.select();
+            let command = sqlSelect.from('members').select('USERID').where({EMAIL: email}).build();
+            console.log("command: "+command);
+            database.connection.query(command).on('result', function(result){
+                console.log(result.USERID);
+                return result.USERID;
+            }).on('error', function(err){
+                console.log(err);
+            });
+        }
+    }
+}
+
 function getUserIDFromUsername(username){
-    //TODO: ADD QUERY
+    sqlSelect = sqlQuery.select();
+    let command = sqlSelect.from('members').select('USERID').where({USERNAME: username}).build();
+    console.log("command: "+command);
+    database.connection.query(command).on('result', function(result){;
+        return result.USERID;
+    }).on('error', function(err){
+        console.log(err);
+    });
 }
 
 function deleteUser(userID){
