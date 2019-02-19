@@ -17,7 +17,7 @@ var sqlSelect;
 //USED FOR INSERT COMMANDS:
 var sqlInsert;
 //USED FOR UPDATE COMMANDS:
-var sqlUpdate = sqlQuery.update()
+var sqlUpdate = sqlQuery.update();
 
 
 /*
@@ -32,43 +32,30 @@ exports.createUser = function(username, password, voornaam, achternaam, email, p
     database.connection.query(command);
 };
 
-exports.getUserIDFromEmail = function(email){
-    sqlSelect = sqlQuery.select();
-    let command = sqlSelect.from('members').select('USERID').where({EMAIL: email}).build();
-    console.log("command: "+command);
-    database.connection.query(command).on('result', function(result){;
-        return result.USERID;
-    }).on('error', function(err){
-        console.log(err);
-    });
-}
-
 exports.userID = function(){
     return {
-        getFromEmail: function(email){
+        getFromEmail: function(email, callback_userid){
             sqlSelect = sqlQuery.select();
             let command = sqlSelect.from('members').select('USERID').where({EMAIL: email}).build();
             console.log("command: "+command);
             database.connection.query(command).on('result', function(result){
-                console.log(result.USERID);
-                return result.USERID;
+                return callback_userid(result.USERID);
             }).on('error', function(err){
                 console.log(err);
             });
-        }
+        },
+          getFromUsername: function(username, callback_userid){
+            sqlSelect = sqlQuery.select();
+            let command = sqlSelect.from('members').select('USERID').where({USERNAME: username}).build();
+            console.log("command: "+command);
+            database.connection.query(command).on('result', function(result){
+              return callback_userid(result.USERID);
+            }).on('error', function(err){
+              console.log(err);
+            });
+          }
     }
-}
-
-function getUserIDFromUsername(username){
-    sqlSelect = sqlQuery.select();
-    let command = sqlSelect.from('members').select('USERID').where({USERNAME: username}).build();
-    console.log("command: "+command);
-    database.connection.query(command).on('result', function(result){;
-        return result.USERID;
-    }).on('error', function(err){
-        console.log(err);
-    });
-}
+};
 
 function deleteUser(userID){
     //TODO: ADD QUERY
