@@ -2,10 +2,17 @@ var mysql = require('mysql');
 var fs = require('fs');
 var exports = module.exports = {};
 //Load settings
-var settings = JSON.parse(fs.readFileSync('settings.json', 'utf8'));
+var settings = null;
+
+try{
+    settings = JSON.parse(fs.readFileSync('settings.json', 'utf8'));
+}catch(err){
+    console.log("Please supply a settings.json file, look for sample-settings.json");
+}
+
 
 //Create Pool  with settings
-var pool =  mysql.createPool({
+let pool =  mysql.createPool({
     //Use settings from settings.json file located in root of project
     connectionLimit: settings.poolSize, //Max amount of simuultaneous connections - INT
     host     : settings.database_host, //Address of database - STRING
@@ -32,7 +39,6 @@ exports.connection = {
                 q.on('end', function () {
                     conn.release();
                 });
-
                 events.forEach(function (args) {
                     q.on.apply(q, args);
                 });
