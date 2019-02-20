@@ -5,13 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-
-//Require Routes
+//Require Routes -- EDIT THIS
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var strepenRouter = require('./routes/strepen');
-var michaelRouter = require('./routes/test_michael');
 
+//Express
 var app = express();
 
 // view engine setup
@@ -24,15 +23,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
-//Setup Routes
+
+//Setup Routes -- EDIT THIS
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/strepen', strepenRouter);
-app.use('/michael', michaelRouter);
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
