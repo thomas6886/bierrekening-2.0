@@ -57,8 +57,8 @@ router.get('/getAllLastX', function(req, res) {
   });
 });
 
-//GET laatste x (nummer) strepen per user. USAGE: url/strepen/getAllLastX?x=INPUT&userid=INPUT
-router.get('/getAllLastX', function(req, res) {
+//GET laatste x (nummer) strepen per user. USAGE: url/strepen/getLastXPerUser?x=INPUT&userid=INPUT
+router.get('/getLastXPerUser', function(req, res) {
   database_operations.streepjes().getLastXByUserID(req.query.x, req.query.userid, function(response){
     res.json(response);
   });
