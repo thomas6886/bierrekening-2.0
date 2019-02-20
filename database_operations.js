@@ -36,24 +36,22 @@ exports.createUser = function(username, password, voornaam, achternaam, email, p
 
 exports.userID = function(){
     return {
-        getFromEmail: function(email, callback_userid){
+        getFromEmail: function(email, callback){
             sqlSelect = sqlQuery.select();
             //QUERY:
             let command = sqlSelect.from('members').select('USERID').where({EMAIL: email}).build();
-
             database.connection.query(command).on('result', function(result){
-                return callback_userid(result.USERID);
+                return callback(result.USERID);
             }).on('error', function(err){
                 console.error(err);
             });
         },
-          getFromUsername: function(username, callback_userid){
+          getFromUsername: function(username, callback){
             sqlSelect = sqlQuery.select();
             //QUERY:
             let command = sqlSelect.from('members').select('USERID').where({USERNAME: username}).build();
-
             database.connection.query(command).on('result', function(result){
-              return callback_userid(result.USERID);
+              return callback(result.USERID);
             }).on('error', function(err){
               console.error(err);
             });
@@ -65,17 +63,40 @@ function deleteUser(userID){
     //TODO: ADD QUERY
 }
 
-function getProfilePicture(userID){
-    //TODO: ADD QUERY
-}
+exports.profilePicture = function(){
+  return {
+    getByUserID: function(userid, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('members').select('PLAATJE').where({USERID: userid}).build();
+      database.connection.query(command).on('result', function(result){
+        return callback(result.PLAATJE);
+      }).on('error', function(err){
+        console.error(err);
+      });
+    }
+  }
+};
 
 function getIBAN(userID){
     //TODO: ADD QUERY
 }
 
-function getSaldo(userID){
-    //TODO: ADD QUERY
-}
+//EVERYTHING SALDO
+exports.saldo = function(){
+  return {
+    getFromUserID: function(userID, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('members').select('SALDO').where({USERID: userID}).build();
+      database.connection.query(command).on('result', function(result){
+        return callback(result.SALDO);
+      }).on('error', function(err){
+        console.error(err);
+      });
+    }
+  }
+};
 
 function getFullName(userID){
     //TODO: ADD QUERY
@@ -98,7 +119,7 @@ function getEmail(userID){
 STREEPJES TABLE OPERATIONS
 
  */
-
+//Creates a streepje. VARS: userid, aantal, lading
 exports.createStreepje = function(userid, aantal, lading){
   var currTime = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
   sqlInsert = sqlQuery.insert();
@@ -110,17 +131,60 @@ exports.createStreepje = function(userid, aantal, lading){
 
 exports.streepjes = function(){
   return {
-    getByUserID: function(userid, callback_streepjes){
+    //Get all streepjes by userid VARS: userid, CALLBACK
+    getByUserID: function(userid, callback){
       sqlSelect = sqlQuery.select();
       //QUERY:
       let command = sqlSelect.from('steepjes').select('*').where({USERID: userid}).build();
       let output = [];
       database.connection.query(command).on('result', function(result){
         output.push(result);
+      }).on('end', function(){
+        return callback(output);
       }).on('error', function(err){
         console.error(err);
+      });
+    },
+    //Get all streepjes by lading VARS: lading CALLBACK
+    getByLading: function(lading, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('steepjes').select('*').where({LADING: lading}).build();
+      let output = [];
+      database.connection.query(command).on('result', function(result){
+        output.push(result);
       }).on('end', function(){
-        return callback_streepjes(output);
+        return callback(output);
+      }).on('error', function(err){
+        console.error(err);
+      });
+    },
+    //Get last x (number) of all streepjes VARS: lastx CALLBACK
+    getAllLastX: function(lastx, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('steepjes').select('*').limit(lastx).build();
+      let output = [];
+      database.connection.query(command).on('result', function(result){
+        output.push(result);
+      }).on('end', function(){
+        return callback(output);
+      }).on('error', function(err){
+        console.error(err);
+      });
+    },
+    //Get last x (number) of streepjes per user VARS: lastx, userid, CALLBACK
+    getLastXByUserID: function(lastx, userid, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('steepjes').select('*').where({USERID: userid}).limit(lastx).build();
+      let output = [];
+      database.connection.query(command).on('result', function(result){
+        output.push(result);
+      }).on('end', function(){
+        return callback(output);
+      }).on('error', function(err){
+        console.error(err);
       });
     }
   }

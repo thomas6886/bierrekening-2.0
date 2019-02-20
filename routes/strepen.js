@@ -14,6 +14,13 @@ router.get('/getStrepenByUserID', function(req, res) {
   });
 });
 
+//GET alle strepen per userid. USAGE: url/strepen/getStrepenByLading?lading=LADING
+router.get('/getStrepenByLading', function(req, res) {
+  database_operations.streepjes().getByLading(req.query.lading, function(response){
+    res.json(response);
+  });
+});
+
 /*PUT nieuwe streep. USAGE: url/strepen/createStreepje?userid=ID&aantal=AANTAL&lading=LADING */
 router.put('/createStreepje', function (req, res) {
   if(true){ //TODO: Add authentication (limit ability to streep)

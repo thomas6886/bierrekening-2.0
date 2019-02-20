@@ -21,4 +21,11 @@ router.get('/useridfromemail', function(req, res) {
   });
 });
 
+/*GET profile picture from given userid. USAGE: url/users/picturefromuserid?userid=INPUT */
+router.get('/picturefromuserid', function(req, res) {
+  database_operations.profilePicture().getByUserID(req.query.userid, function(response){
+    res.json(response);
+  });
+});
+
 module.exports = router;

@@ -39,7 +39,6 @@ exports.connection = {
                 q.on('end', function () {
                     conn.release();
                 });
-                console.log(events);
                 events.forEach(function (args) {
                     q.on.apply(q, args);
                 });
