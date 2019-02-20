@@ -7,19 +7,13 @@ router.get('/', function (req, res, next) {
     res.render('strepen');
 });
 
-//GET alle strepen per userid. USAGE: url/strepen/getStrepenByUserID?userid=ID
-router.get('/getStrepenByUserID', function(req, res) {
-  database_operations.streepjes().getByUserID(req.query.userid, function(response){
-    res.json(response);
-  });
-});
-
-//GET alle strepen per userid. USAGE: url/strepen/getStrepenByLading?lading=LADING
-router.get('/getStrepenByLading', function(req, res) {
-  database_operations.streepjes().getByLading(req.query.lading, function(response){
-    res.json(response);
-  });
-});
+/*
+#########################
+#                       #
+#   CREATE STREEPJES    #
+#                       #
+#########################
+ */
 
 /*PUT nieuwe streep. USAGE: url/strepen/createStreepje?userid=ID&aantal=AANTAL&lading=LADING */
 router.put('/createStreepje', function (req, res) {
@@ -33,6 +27,44 @@ router.put('/createStreepje', function (req, res) {
     res.status(400);
   }
 });
+
+/*
+#########################
+#                       #
+#    GET STREEPJES      #
+#                       #
+#########################
+ */
+
+//GET alle strepen per userid. USAGE: url/strepen/getStrepenByUserID?userid=ID
+router.get('/getStrepenByUserID', function(req, res) {
+  database_operations.streepjes().getFromUserID(req.query.userid, function(response){
+    res.json(response);
+  });
+});
+
+//GET alle strepen per userid. USAGE: url/strepen/getStrepenByLading?lading=LADING
+router.get('/getStrepenByLading', function(req, res) {
+  database_operations.streepjes().getFromLading(req.query.lading, function(response){
+    res.json(response);
+  });
+});
+
+//GET alle laatste x (nummer) strepen. USAGE: url/strepen/getAllLastX?x=INPUT
+router.get('/getAllLastX', function(req, res) {
+  database_operations.streepjes().getAllLastX(req.query.x, function(response){
+    res.json(response);
+  });
+});
+
+//GET laatste x (nummer) strepen per user. USAGE: url/strepen/getAllLastX?x=INPUT&userid=INPUT
+router.get('/getAllLastX', function(req, res) {
+  database_operations.streepjes().getLastXByUserID(req.query.x, req.query.userid, function(response){
+    res.json(response);
+  });
+});
+
+
 
 
 

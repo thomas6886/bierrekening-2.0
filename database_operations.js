@@ -20,22 +20,25 @@ var sqlInsert;
 //USED FOR UPDATE COMMANDS:
 var sqlUpdate = sqlQuery.update();
 
+
 /*
 
 MEMBERS TABLE OPERATIONS
 
  */
 
+//Creates new user with default saldo 0 VARS: username, password, voornaam, achternaam, email, profilepicture, iban
 exports.createUser = function(username, password, voornaam, achternaam, email, profilepicture, iban){
     sqlInsert = sqlQuery.insert();
     let command = sqlInsert.into('members').set({USERNAME: username, PASSWORD: password, NAAM: voornaam, ACHTERNAAM: achternaam, EMAIL: email, PLAATJE: profilepicture, IBAN:iban, SALDO: 0}).build();
     database.connection.query(command).on('error', function(err){
       console.error(err);
     });
-};
+};//NOT YET IMPLEMENTED IN ROUTE
 
 exports.userID = function(){
     return {
+        //Get UserID from email VARS: email CALLBACK
         getFromEmail: function(email, callback){
             sqlSelect = sqlQuery.select();
             //QUERY:
@@ -46,6 +49,7 @@ exports.userID = function(){
                 console.error(err);
             });
         },
+          //Get UserID from username VARS: username CALLBACK
           getFromUsername: function(username, callback){
             sqlSelect = sqlQuery.select();
             //QUERY:
@@ -65,7 +69,8 @@ function deleteUser(userID){
 
 exports.profilePicture = function(){
   return {
-    getByUserID: function(userid, callback){
+    //Get profile picture (filename.png) from UserID VARS: UserID CALLBACK
+    getFromUserID: function(userid, callback){
       sqlSelect = sqlQuery.select();
       //QUERY:
       let command = sqlSelect.from('members').select('PLAATJE').where({USERID: userid}).build();
@@ -78,13 +83,10 @@ exports.profilePicture = function(){
   }
 };
 
-function getIBAN(userID){
-    //TODO: ADD QUERY
-}
-
 //EVERYTHING SALDO
 exports.saldo = function(){
   return {
+    //Get saldo from UserID VARS: UserID CALLBACK
     getFromUserID: function(userID, callback){
       sqlSelect = sqlQuery.select();
       //QUERY:
@@ -98,27 +100,60 @@ exports.saldo = function(){
   }
 };
 
-function getFullName(userID){
-    //TODO: ADD QUERY
-}
+exports.voornaam = function(){
+  return {
+    //Get voornaam from UserID VARS: UserID CALLBACK
+    getFromUserID: function(userID, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('members').select('NAAM').where({USERID: userID}).build();
+      database.connection.query(command).on('result', function(result){
+        return callback(result.NAAM);
+      }).on('error', function(err){
+        console.error(err);
+      });
+    }
+  }
+};
 
-function getVoornaam(userID){
-    //TODO: ADD QUERY
-}
+exports.achternaam = function(){
+  return {
+    //Get achternaam from UserID VARS: UserID CALLBACK
+    getFromUserID: function(userID, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('members').select('ACHTERNAAM').where({USERID: userID}).build();
+      database.connection.query(command).on('result', function(result){
+        return callback(result.ACHTERNAAM);
+      }).on('error', function(err){
+        console.error(err);
+      });
+    }
+  }
+};
 
-function getAchternaam(userID){
-    //TODO: ADD QUERY
-}
-
-function getEmail(userID){
-    //TODO: ADD QUERY
-}
+exports.fullname = function(){
+  return {
+    //Get voornaam from UserID VARS: UserID CALLBACK
+    getFromUserID: function(userID, callback){
+      sqlSelect = sqlQuery.select();
+      //QUERY:
+      let command = sqlSelect.from('members').select('*').where({USERID: userID}).build();
+      database.connection.query(command).on('result', function(result){
+        return callback(result.NAAM + " " + result.ACHTERNAAM);
+      }).on('error', function(err){
+        console.error(err);
+      });
+    }
+  }
+};
 
 /*
 
 STREEPJES TABLE OPERATIONS
 
  */
+
 //Creates a streepje. VARS: userid, aantal, lading
 exports.createStreepje = function(userid, aantal, lading){
   var currTime = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
@@ -132,7 +167,7 @@ exports.createStreepje = function(userid, aantal, lading){
 exports.streepjes = function(){
   return {
     //Get all streepjes by userid VARS: userid, CALLBACK
-    getByUserID: function(userid, callback){
+    getFromUserID: function(userid, callback){
       sqlSelect = sqlQuery.select();
       //QUERY:
       let command = sqlSelect.from('steepjes').select('*').where({USERID: userid}).build();
@@ -146,7 +181,7 @@ exports.streepjes = function(){
       });
     },
     //Get all streepjes by lading VARS: lading CALLBACK
-    getByLading: function(lading, callback){
+    getFromLading: function(lading, callback){
       sqlSelect = sqlQuery.select();
       //QUERY:
       let command = sqlSelect.from('steepjes').select('*').where({LADING: lading}).build();
