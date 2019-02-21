@@ -1,48 +1,79 @@
-.container {
-    background: #545b62;
+body {
+    background-color: #192a56;
+    background-image: url("../pictures/background.jpg");
+}
 
-    /* give the outermost container a predefined size */
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 600px;
+p {
+    font-family: 'Raleway', sans-serif;
+}
+h {
+    font-family: 'Raleway', sans-serif;
+}
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+/*START BOOTSTRAP EDIT*/
+.container-fluid {
+    padding: 0px 15px;
+}
+
+.col-2 {
+    padding: 0px;
+}
+
+.col-10 {
+    padding: 0px;
+}
+
+/*END BOOTSTRAP EDIT*/
+
+div.topblock {
+    height: 75vh;
+}
+
+div.bottomblock {
+    height: 25vh;
+}
+
+div.usersList{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 75vh;
 }
 
-.section {
-    margin: 10px;
-    background: #2196F3;
-    flex-grow: 1;
-
+div.featurelist{
     display: flex;
-    flex-direction: column;
-
-    /* for Firefox */
-    min-height: 0;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 75vh;
 }
 
-.content {
-    margin: 10px;
-    background: #BBDEFB;
+div.ladinglist{
+    display: flex;
+    overflow-x: auto;
+    max-height: 25vh;
 }
 
-.scrollable-content {
-    background: white;
-    flex-grow: 1;
-
-    overflow: auto;
-
-    /* for Firefox */
-    min-height: 0;
+div.itemwrapper {
+    height: 25vh;
+    padding: 5px;
 }
 
-.streep_user {
-    background: white;
-    border-style: solid;
-    border-width: 3px;
-    border-color: red;
+div.itemblock {
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#confirm {
+    background-color: #1abc9c;
+}
+
+#button {
+    background-color: #ecf0f1;
 }
 

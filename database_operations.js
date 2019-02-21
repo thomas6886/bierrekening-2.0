@@ -20,7 +20,6 @@ var sqlInsert;
 //USED FOR UPDATE COMMANDS:
 var sqlUpdate = sqlQuery.update();
 
-
 /*
 #########################
 #                       #
@@ -37,6 +36,26 @@ exports.createUser = function(username, password, voornaam, achternaam, email, p
         console.error(err);
     });
 };//NOT YET IMPLEMENTED IN ROUTE
+
+exports.users = function(){
+    return {
+        //Get all users public information VARS: CALLBACK
+        getAll: function(callback){
+            sqlSelect = sqlQuery.select();
+            //QUERY:
+            let command = sqlSelect.from('members').select('USERID', 'NAAM', 'PLAATJE').build();
+            console.log(command);
+            let output = [];
+            database.connection.query(command).on('result', function(result){
+                output.push(result);
+            }).on('end', function(){
+                return callback(output);
+            }).on('error', function(err){
+                console.error(err);
+            });
+        }
+    }
+};
 
 exports.userID = function(){
     return {

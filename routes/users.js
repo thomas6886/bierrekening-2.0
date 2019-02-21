@@ -15,6 +15,13 @@ router.get('/', function(req, res, next) {
 #########################
  */
 
+/*GET all users. USAGE: url/users/getall */
+router.get('/getall', function(req, res) {
+  database_operations.users().getAll(function(response){
+    res.json(response);
+  });
+});
+
 /*GET userid from given email. USAGE: url/users/userid/getfromemail?email=INPUT */
 router.get('/userid/getfromemail', function(req, res) {
   database_operations.userID().getFromEmail(req.query.email, function(response){
