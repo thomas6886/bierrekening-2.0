@@ -22,9 +22,11 @@ var sqlUpdate = sqlQuery.update();
 
 
 /*
-
-MEMBERS TABLE OPERATIONS
-
+#########################
+#                       #
+#        MEMBERS        #
+#                       #
+#########################
  */
 
 //Creates new user with default saldo 0 VARS: username, password, voornaam, achternaam, email, profilepicture, iban
@@ -83,7 +85,14 @@ exports.profilePicture = function(){
     }
 };
 
-//EVERYTHING SALDO
+/*
+#########################
+#                       #
+#         SALDO         #
+#                       #
+#########################
+ */
+
 exports.saldo = function(){
     return {
         //Get saldo from UserID VARS: UserID CALLBACK
@@ -149,9 +158,11 @@ exports.fullname = function(){
 };
 
 /*
-
-STREEPJES TABLE OPERATIONS
-
+#########################
+#                       #
+#       STREEPJES       #
+#                       #
+#########################
  */
 
 //Creates a streepje. VARS: userid, aantal, lading
@@ -213,6 +224,70 @@ exports.streepjes = function(){
             sqlSelect = sqlQuery.select();
             //QUERY:
             let command = sqlSelect.from('steepjes').select('*').where({USERID: userid}).limit(lastx).build();
+            let output = [];
+            database.connection.query(command).on('result', function(result){
+                output.push(result);
+            }).on('end', function(){
+                return callback(output);
+            }).on('error', function(err){
+                console.error(err);
+            });
+        }
+    }
+};
+
+/*
+#########################
+#                       #
+#       LADINGEN        #
+#                       #
+#########################
+ */
+
+//Creates a lading. VARS: datum_opened, datum_closed, streepbaar, merk, aantalkrat, itemsperkrat, prijskrat, extracent, chauffeurskosten, plaatje
+exports.createLading = function(datum_opened, datum_closed, streepbaar, merk, aantalkrat, itemsperkrat, prijskrat, extracent, chauffeurskosten, plaatje){
+    sqlInsert = sqlQuery.insert();
+    let command = sqlInsert.into('ladingen').set({DATUM_OPENED: datum_opened, DATUM_CLOSED: datum_closed, STREEPBAAR: streepbaar, MERK: merk, AANTALKRAT: aantalkrat, ITEMSPERKRAT: itemsperkrat, PRIJSKRAT: prijskrat, EXTRACENT: extracent, CHAUFFEURSKOSTEN: chauffeurskosten, PLAATJE: plaatje}).build();
+    database.connection.query(command).on('error', function(err){
+        console.error(err);
+    });
+};
+
+exports.ladingen = function(){
+    return {
+        //Get all ladingen VARS: CALLBACK
+        getAll: function(callback){
+            sqlSelect = sqlQuery.select();
+            //QUERY:
+            let command = sqlSelect.from('ladingen').select('*').build();
+            let output = [];
+            database.connection.query(command).on('result', function(result){
+                output.push(result);
+            }).on('end', function(){
+                return callback(output);
+            }).on('error', function(err){
+                console.error(err);
+            });
+        },
+        //Get all active ladingen VARS: CALLBACK
+        getAllActive: function(callback){
+            sqlSelect = sqlQuery.select();
+            //QUERY:
+            let command = sqlSelect.from('ladingen').select('*').where({STREEPBAAR: 1}).build();
+            let output = [];
+            database.connection.query(command).on('result', function(result){
+                output.push(result);
+            }).on('end', function(){
+                return callback(output);
+            }).on('error', function(err){
+                console.error(err);
+            });
+        },
+        //Get all by merk VARS: merk, CALLBACK
+        getAllByMerk: function(merk, callback){
+            sqlSelect = sqlQuery.select();
+            //QUERY:
+            let command = sqlSelect.from('ladingen').select('*').where({MERK: merk}).build();
             let output = [];
             database.connection.query(command).on('result', function(result){
                 output.push(result);
