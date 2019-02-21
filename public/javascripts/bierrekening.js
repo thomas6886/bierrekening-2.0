@@ -61,7 +61,7 @@ $(function(){
 $(function(){
     var streep1 = [{"STREEPID":1,"TIMESTAMP":"2019-02-19T13:25:36.000Z","USERID":100,"AANTAL":4,"LADING":"Grolsch 4"},{"STREEPID":2,"TIMESTAMP":"2019-02-19T13:40:35.000Z","USERID":100,"AANTAL":3,"LADING":"Palm 2"},{"STREEPID":3,"TIMESTAMP":"2019-02-19T13:48:24.000Z","USERID":100,"AANTAL":3,"LADING":"Grolsch 3"},{"STREEPID":4,"TIMESTAMP":"2019-02-19T13:53:23.000Z","USERID":100,"AANTAL":3,"LADING":"Palm 2"},{"STREEPID":5,"TIMESTAMP":"2019-02-19T13:53:26.000Z","USERID":100,"AANTAL":3,"LADING":"Grolsch 3"},{"STREEPID":6,"TIMESTAMP":"2019-02-19T13:53:45.000Z","USERID":100,"AANTAL":3,"LADING":"Grolsch 3"}];
     var tableContent = '';
-    var dagen = ["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag","zondag"]
+    var dagen = ["zondag","maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"]
     $.each(streep1,function(){
         var d = new Date(this.TIMESTAMP);
 
