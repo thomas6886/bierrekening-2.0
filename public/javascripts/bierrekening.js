@@ -40,23 +40,6 @@ $(function(){
     });
 
 //data in blokje laatste streepjes
-$(function(){
-    var streep1 = {naam:"steven",soort:"hertog",tijd:"12:32",dag:"09/02/19",data:"leeg"};
-    var streep2 = {naam:"marcel",soort:"hertog",tijd:"12:32",dag:"09/02/19"};
-    var streep3 = {naam:"hop",soort:"hertog",tijd:"12:32",dag:"09/02/19"};
-    var streepjes = streep1 + streep2 +streep3;
-    var tableContent = '';
-    $.each(streep1,function(){
-        tableContent += '<tr>';
-        tableContent += '<td>' + streep1.naam + '</td>';
-        tableContent += '<td>' + streep1.soort + '</td>';
-        tableContent += '<td>' + streep1.tijd + '</td>';
-        tableContent += '<td>' + streep1.dag + '</td>';
-
-    });
-    $('#myTable').append(tableContent);
-
-});
 
 $(function(){
     var streep1 = [{"STREEPID":1,"TIMESTAMP":"2019-02-19T13:25:36.000Z","USERID":100,"AANTAL":4,"LADING":"Grolsch 4"},{"STREEPID":2,"TIMESTAMP":"2019-02-19T13:40:35.000Z","USERID":100,"AANTAL":3,"LADING":"Palm 2"},{"STREEPID":3,"TIMESTAMP":"2019-02-19T13:48:24.000Z","USERID":100,"AANTAL":3,"LADING":"Grolsch 3"},{"STREEPID":4,"TIMESTAMP":"2019-02-19T13:53:23.000Z","USERID":100,"AANTAL":3,"LADING":"Palm 2"},{"STREEPID":5,"TIMESTAMP":"2019-02-19T13:53:26.000Z","USERID":100,"AANTAL":3,"LADING":"Grolsch 3"},{"STREEPID":6,"TIMESTAMP":"2019-02-19T13:53:45.000Z","USERID":100,"AANTAL":3,"LADING":"Grolsch 3"}];
@@ -144,7 +127,52 @@ $(function(){
 
 });
 
+//
+$(function(){
+    $('.panel-button').on("click", function() {
 
+
+        var titleinput = $(this).attr("data-panelid");
+
+        if (titleinput == 10) {
+            title = "Heel matig, arme sloeber"
+        } else if (titleinput == 20){
+            title = "Beter dan 10 maar nog steeds niet veel"
+        }else if (titleinput == 50){
+            title = "Goed bezig"
+        }else if (titleinput == 100){
+            title = "Deze rijke tata verdient een sticker"
+        }
+
+        let timerInterval
+        Swal.fire({
+            type: 'success',
+            title: title,
+            width: '50%',
+            html: '<div id="qrcode"></div>',
+            onOpen: () => {
+                var geld = $(this).attr("data-panelid");
+                let qrcode = new QRCode("qrcode", {
+                    width: 500,
+                    height: 500,
+                    colorDark: "#000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+
+                //var text= "BCD0011SCTINGBNL2ASteven LankheetNL59INGB0669324469EUR20";
+                var text= "BCD\n001\n1\nSCT\nINGBNL2A\nSteven Lankheet\nNL59INGB0669324469\nEUR"+geld;
+                qrcode.clear();
+                qrcode.makeCode(text);
+            },
+            onClose: () => {
+                clearInterval(timerInterval)
+            }
+        })
+
+
+    })
+});
 
 
 

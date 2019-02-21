@@ -75,8 +75,8 @@ block saldo
       .x_content
         button.panel-button.btn.btn-danger(data-panelid = "10") 10 euro
         button.panel-button.btn.btn-warning(data-panelid = "20") 20 euro
-        button.panel-button.btn.btn-warning(data-panelid = "50") 50 euro
-        button.panel-button.btn.btn-success(data-panelid = "100") 100 euro
+        button.panel-button.btn.btn-warning.kijkHoeRijkIkBen(data-panelid = "50") 50 euro
+        button.panel-button.btn.btn-success.kijkHoeRijkIkBen(data-panelid = "100") 100 euro
     .x_panel
       .x_title
         p Voorlopig saldi
@@ -112,51 +112,6 @@ block saldo
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //
-    block strepe
-      div.streepapp
-        div.linkerkant
-          div.linksboven.blok
-            .row
-              img.plaatje(src='/pictures/reset.png')
-              img.plaatje(src='/pictures/stats.png')
-              img.plaatje(src='/pictures/on_off.png')
-              img.plaatje(src='/pictures/confirm.png')
-
-          div.linksonder.blok
-
-        div.rechterkant
-          Div.personen.blok
-            table#test
-          div.bieren.blok
-      div
-        #bericht
-          p nog niet gestreept
-
-      div
-        div
-          button(onclick="personen()")
-          p klik hierboven om de personen tabel te vullen
-
-
-      script(src='/javascripts/strepen.js')
 
 
 

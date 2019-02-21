@@ -346,7 +346,7 @@ block alleladingen
 
 block account
     .col-md-4.col-sm-6.col-xs-12
-        .x_panel.marginaccountinfo
+        .x_panel.marginaccountinfo.hoogte
             .x_title
                 h2
                     | Saldo
@@ -377,7 +377,7 @@ block account
                         span 12/08/15
                     .clearfix
     .col-md-4.col-sm-6.col-xs-12
-        .x_panel.marginaccountinfo
+        .x_panel.marginaccountinfo.hoogte
             .x_title
                 h2
                     | Account info
@@ -407,3 +407,32 @@ block account
                     .w_center.w_55
                         span 12/08/15
                     .clearfix
+    .col-md-4.col-sm-6.col-xs-12
+        .x_panel.marginaccountinfo.hoogte2
+            .x_title
+                h2
+                    | Saldo opwaarderen QR code
+                .clearfix
+            .x_content.extrapadding
+                button.panel-button.btn.btn-danger(data-panelid = "10") 10 euro
+                    button.panel-button.btn.btn-warning(data-panelid = "20") 20 euro
+                    button.panel-button.btn.btn-warning(data-panelid = "50") 50 euro
+                    button.panel-button.btn.btn-success(data-panelid = "100") 100 euro
+    .col-md-4.col-sm-6.col-xs-12
+        .x_panel.marginaccountinfo.hoogte2
+            .x_title
+                h2
+                    | Saldo opwaarderen overmaken
+                .clearfix
+            .x_content.extrapadding
+                .widget_summary.extrapadding
+                    .w_left.w_25.font-weight-bold
+                        span Biercommander:
+                    .w_center.w_55
+                        span Micheal Hop
+                    .clearfix
+                .widget_summary.extrapadding
+                    .w_left.w_25.font-weight-bold
+                        span IBan:
+                    .w_center.w_55
+                        span Nl30 INGB 00192912312

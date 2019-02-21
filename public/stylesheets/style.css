@@ -3,51 +3,6 @@ body {
 
 }
 
-div.linkerkant {
-    position: absolute;
-    width: 20%;
-    height:700px;
-    border: 1px #000000 solid;
-}
-
-div.linksboven {
-    height:75%;
-    background: #854A10;
-}
-
-div.linksonder {
-    height:25%;
-    top:75%;
-    background: #FFFF00;
-}
-
-
-div.rechterkant {
-    position: relative;
-    left: 20%;
-    height:700px;
-    width: 80%;
-    border: 1px #000000 solid;
-}
-
-Div.personen {
-    height:75%;
-    overflow:scroll;
-    background: #854ABB;
-
-}
-div.bieren {
-    height:25%;
-    top:75%;
-    background: #FFFA;
-}
-
-div.bericht {
-    height:100px;
-    width:600px;
-
-    border: 1px #000000 solid;
-}
 
 #bericht {
     color: red;
@@ -157,3 +112,23 @@ div.persoon {
     margin-top: 25px;
     margin-left: 25px;
 }
+.hoogte {
+    height:180px;
+}
+.hoogte2 {
+    height:120px;
+}
+#qrcode {
+    width: 40vw;
+    height: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.panel-button {
+    margin-left: 3%;
+    margin-right: 3%;
+
+
+}
+img{vertical-align: middle; height: 100%; width: 100%; object-fit:contain; padding-top: 1.5vh}

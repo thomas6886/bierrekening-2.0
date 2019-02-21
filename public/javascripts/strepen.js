@@ -244,24 +244,34 @@ $(function(){
 
 
 
-
+//sweet alert pop up box en qr.js
 $(function(){
         $('.panel-button').on("click", function() {
 
 
-                //var text= "BCD0011SCTINGBNL2ASteven LankheetNL59INGB0669324469EUR20";
+                var titleinput = $(this).attr("data-panelid");
+
+                if (titleinput == 10) {
+                        title = "Heel matig, arme sloeber"
+                } else if (titleinput == 20){
+                        title = "Beter dan 10 maar nog steeds niet veel"
+                }else if (titleinput == 50){
+                        title = "Goed bezig"
+                }else if (titleinput == 100){
+                        title = "Deze rijke tata verdient een sticker"
+                }
 
                 let timerInterval
                 Swal.fire({
                         type: 'success',
-                        title: 'Lekker bezig pik',
+                        title: title,
                         width: '50%',
                         html: '<div id="qrcode"></div>',
                         onOpen: () => {
                                 var geld = $(this).attr("data-panelid");
                                 let qrcode = new QRCode("qrcode", {
-                                        width: 177,
-                                        height: 177,
+                                        width: 500,
+                                        height: 500,
                                         colorDark: "#000",
                                         colorLight: "#ffffff",
                                         correctLevel: QRCode.CorrectLevel.H
@@ -280,3 +290,14 @@ $(function(){
 
         })
 });
+
+
+
+
+
+
+
+
+
+
+
