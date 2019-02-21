@@ -1,0 +1,61 @@
+doctype html
+html
+  head
+    title= title
+    //Bootstrap
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-grid.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-reboot.min.css')
+
+
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+
+
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    // Meta, title, CSS, favicons, etc.
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Bootstrap
+    link(href='/stylesheets/vendors/bootstrap/dist/css/bootstrap.min.css')
+    // Font Awesome
+    link(href='/stylesheets/vendors/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    // NProgress
+    link(href='/stylesheets/vendors/nprogress/nprogress.css', rel='stylesheet')
+    // Custom Theme Style
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+
+    // spul voor goede mobiele weergave
+    link(rel='manifest', href='manifest.json')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
+    link(rel='stylesheet', href='/stylesheets/style_streep.css')
+    link(rel='stylesheet', href='/stylesheets/style_streep_statestieken.css')
+
+
+
+
+  body.statestieken
+
+    ul.nav.nav-tabs
+      li
+        a(href='/streep') Terug naar strepen
+      li.active
+        a(data-toggle='tab', href='#laatste') Laatste streepjes
+      li
+        a(data-toggle='tab', href='#week') Statastieken per week
+      li
+        a(data-toggle='tab', href='#vandaag') statestieken van vandaag
+
+
+    .tab-content
+      #laatste.tab-pane.fadein.active
+        block laatste
+      #week.tab-pane.fade
+        block week
+      #vandaag.tab-pane.fade
+        block vandaag
+

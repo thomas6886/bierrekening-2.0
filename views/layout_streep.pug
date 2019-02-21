@@ -1,0 +1,119 @@
+doctype html
+html
+  head
+    title= title
+    //Bootstrap
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-grid.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-reboot.min.css')
+
+
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+
+
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    // Meta, title, CSS, favicons, etc.
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Bootstrap
+    link(href='/stylesheets/vendors/bootstrap/dist/css/bootstrap.min.css')
+    // Font Awesome
+    link(href='/stylesheets/vendors/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    // NProgress
+    link(href='/stylesheets/vendors/nprogress/nprogress.css', rel='stylesheet')
+
+    // Custom Theme Style
+
+
+    link(rel='stylesheet', href='/stylesheets/style_streep.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+    // spul voor goede mobiele weergave
+    link(rel='manifest', href='manifest.json')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
+
+
+
+
+  body
+    .linkerkant
+      .linksboven
+        table.menu.nav
+          tr
+            td#reset.headcol
+              .plaatje
+                img(src='/pictures/reset2.png')
+          tr
+            td#streepMethod.headcol.nav-item.active
+              .plaatje
+                img#streepSwitchImage(src='/pictures/on_off.png')
+          tr
+            td#stats.headcol.nav-item
+              a.plaatje(data-toggle='tab', href='#weekstats')
+                img.Switch(src='/pictures/stats2.png')
+          tr
+            td#wedstrijd.headcol.nav-item
+              a.plaatje(data-toggle='tab', href='#vandaagstats')
+                img.Switch(src='/pictures/wedstrijd.png')
+          tr
+            td.headcol.nav-item
+              a.plaatje(data-toggle='tab', href='#wedstrijdhuis')
+                img.Switch(src='/pictures/b35b37.png')
+          tr
+            td.headcol.nav-item
+              a.plaatje(data-toggle='tab', href='#vooraadtab')
+                img.Switch(src='/pictures/warehouse.png')
+          tr
+            td.headcol.nav-item
+              a.plaatje(data-toggle='tab', href='#saldo')
+                img.Switch(src='/pictures/geld.png')
+      .linksonder
+        table.okknop
+          tr
+            td#send.headcol
+              img(src='/pictures/confirm2.png', style='height:90%')
+
+    .rechterkant
+      .tab-content
+        #laatste.tab-pane.faden.active
+          block strepen
+        #weekstats.tab-pane.fade
+          block weekStats
+        #vandaagstats.tab-pane.fade
+          block vandaagStats
+        #wedstrijdhuis.tab-pane.fade
+          block wedstrijdhuis
+        #vooraadtab.tab-pane.fade
+          block vooraad
+        #saldo.tab-pane.fade
+          block saldo
+
+    // jQuery
+    script(src='/stylesheets/vendors/jquery/dist/jquery.min.js')
+    // Bootstrap
+    script(src='/stylesheets/vendors/bootstrap/dist/js/bootstrap.min.js')
+    // FastClick
+    script(src='/stylesheets/vendors/fastclick/lib/fastclick.js')
+    // NProgress
+    script(src='/stylesheets/vendors/nprogress/nprogress.js')
+    // Custom Theme Scripts
+    script(src='/stylesheets/build/js/custom.min.js')
+    script(src='/stylesheets/build/js/qrcode.min.js')
+
+
+
+    script(src='/stylesheets//vendors/Chart.js/dist/Chart.min.js')
+    // Custom Theme Scripts
+    script(src='/stylesheets//build/js/custom.min.js')
+
+    script(src='/stylesheets/vendors/echarts/dist/echarts.min.js')
+    script(src='/stylesheets/vendors/echarts/map/js/world.js')
+    script(src='https://cdn.jsdelivr.net/npm/sweetalert2@8')
+
+    script(src='/javascripts/strepen.js')
+
+
+

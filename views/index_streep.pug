@@ -1,0 +1,162 @@
+
+extends layout_streep
+block strepen
+  .personen
+    table#test
+
+  .rechtsonder
+    table.bieren#bieren
+
+
+
+block weekStats
+  .week
+      .x_panel
+        .x_title
+          p Aantal biertjes per week, relatief gezien
+
+          .clearfix
+        .x_content
+          canvas#mybarChart1
+
+
+block vandaagStats
+  .week
+    .x_panel
+      .x_title
+        p Bierstats van vandaag
+
+        .clearfix
+      .x_content
+        table.table.table-striped
+          thead
+            tr
+              th Naam
+              th Aantal
+              th Gem. tussen biertjes
+              th van kant
+
+block wedstrijdhuis
+  .week
+    .x_panel
+      .x_title
+        p  Bentrot 35 VS Bentrot 37
+        .clearfix
+      .x_content
+        canvas#pieChart2
+
+
+
+
+
+
+
+block vooraad
+  .week
+    .x_panel
+      .x_title
+        p Voorraad bier
+
+        .clearfix
+      .x_content
+        table.table.table-striped
+          thead
+            tr
+              th Lading
+              th soort
+              th Aantal
+
+block saldo
+  .week
+    .x_panel
+      .x_title
+        p saldo opwaarderen
+        .clearfix
+      .x_content
+        button.panel-button.btn.btn-danger(data-panelid = "10") 10 euro
+        button.panel-button.btn.btn-warning(data-panelid = "20") 20 euro
+        button.panel-button.btn.btn-warning(data-panelid = "50") 50 euro
+        button.panel-button.btn.btn-success(data-panelid = "100") 100 euro
+    .x_panel
+      .x_title
+        p Voorlopig saldi
+        .clearfix
+      .x_content
+        table.table.table-striped
+          thead
+            tr
+              th Naam
+              th saldo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //
+    block strepe
+      div.streepapp
+        div.linkerkant
+          div.linksboven.blok
+            .row
+              img.plaatje(src='/pictures/reset.png')
+              img.plaatje(src='/pictures/stats.png')
+              img.plaatje(src='/pictures/on_off.png')
+              img.plaatje(src='/pictures/confirm.png')
+
+          div.linksonder.blok
+
+        div.rechterkant
+          Div.personen.blok
+            table#test
+          div.bieren.blok
+      div
+        #bericht
+          p nog niet gestreept
+
+      div
+        div
+          button(onclick="personen()")
+          p klik hierboven om de personen tabel te vullen
+
+
+      script(src='/javascripts/strepen.js')
+
+
+

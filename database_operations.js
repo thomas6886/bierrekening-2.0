@@ -7,6 +7,20 @@ This file will contain all database operations, this way queries can be centrali
 PLEASE KEEP IT THIS WAY!!!!
 
  */
+//lankheets gedeelte
+exports.michael_test2 = function(text_form) {
+    var sql = "INSERT INTO `test`( `text`) VALUES (?)";  // ? is plek van de variable
+    database.connection.query(sql, text_form);   // var sql invoegen en combineren
+    console.log('function aangeroepen'); //test om te kijken of de functie werkt
+    const output_database = [text_form, text_form];
+    return output_database
+};
+
+
+
+
+
+//einde lankheets gedeelte
 
 /*
 

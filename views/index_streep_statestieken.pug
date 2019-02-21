@@ -1,0 +1,66 @@
+
+extends layout_streep_statstieken
+block laatste
+    table.table.table-striped#laatsestreepjes
+        thead
+            tr
+                th Naam
+                th Soort
+                th Tijd
+                th dag
+block week
+    #wrapper
+        span.boven Relatieve bierconsumptie van de afgelopen kalenderweken
+        ul#numbers
+            li
+                span 100%
+            li
+                span 90%
+            li
+                span 80%
+            li
+                span 70%
+            li
+                span 60%
+            li
+                span 50%
+            li
+                span 40%
+            li
+                span 30%
+            li
+                span 20%
+            li
+                span 10%
+            li
+                span 0%
+        ul#bars
+            li
+                .bar(data-percentage="'.$totaal_weken[5].'")
+                span.onder Daarvoor
+            li
+                .bar(data-percentage="'.$totaal_weken[4].'")
+                span.onder Daarvoor
+            li
+                .bar(data-percentage="'.$totaal_weken[3].'")
+                span.onder Daarvoor
+            li
+                .bar(data-percentage="'.$totaal_weken[2].'")
+                span.onder Daarvoor
+            li
+                .bar(data-percentage="'.$totaal_weken[1].'")
+                span.onder Vorige
+            li
+                .bar(data-percentage="'.$totaal_weken[0].'")
+                span.onder Huidig
+block vandaag
+    h1 vandaag
+    #output
+
+
+
+
+
+
+
+
