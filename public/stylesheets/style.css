@@ -5,6 +5,8 @@ body {
 
 p {
     font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
 }
 h {
     font-family: 'Raleway', sans-serif;
@@ -67,13 +69,49 @@ div.itemblock {
     height: 100%;
     background-color: white;
     border-radius: 5px;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.profilePicture {
+    min-height: 70%;
+    max-height: 70%;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+.topRowInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomRowInfo {
+    display: flex;
+    justify-content: space-between;
 }
 
 #confirm {
     background-color: #1abc9c;
 }
 
+.checkmark {
+    max-width: 75%;
+    max-height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #button {
     background-color: #ecf0f1;
+}
+
+#button:hover {
+    background-color: #ffff00;
 }
 
