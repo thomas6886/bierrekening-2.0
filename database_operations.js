@@ -199,11 +199,16 @@ exports.fullname = function(){
  */
 
 //Creates a streepje. VARS: userid, aantal, lading
-exports.createStreepje = function(userid, aantal, lading){
+exports.createStreepje = function(userid, aantal, ladingid, callback){
     var currTime = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
     sqlInsert = sqlQuery.insert();
-    let command = sqlInsert.into('steepjes').set({TIMESTAMP: currTime, USERID: userid, AANTAL: aantal, LADING: lading}).build();
-    database.connection.query(command).on('error', function(err){
+    let command = sqlInsert.into('steepjes').set({TIMESTAMP: currTime, USERID: userid, AANTAL: aantal, LADINGID: ladingid}).build();
+    let output = [];
+    database.connection.query(command).on('result', function(result){
+        output.push(result);
+    }).on('end', function(){
+        return callback(output);
+    }).on('error', function(err){
         console.error(err);
     });
 };
@@ -225,10 +230,10 @@ exports.strepen = function(){
             });
         },
         //Get all streepjes by lading VARS: lading CALLBACK
-        getFromLading: function(lading, callback){
+        getFromLading: function(ladingid, callback){
             sqlSelect = sqlQuery.select();
             //QUERY:
-            let command = sqlSelect.from('steepjes').select('*').where({LADING: lading}).build();
+            let command = sqlSelect.from('steepjes').select('*').where({LADINGID: ladingid}).build();
             let output = [];
             database.connection.query(command).on('result', function(result){
                 output.push(result);

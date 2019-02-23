@@ -54,9 +54,9 @@ router.get('/users/:userid/strepen/last-:limit', function (req, res){
 #########################
  */
 
-/*POST nieuwe streep. USAGE: api/strepen?userid=ID&aantal=AANTAL&lading=LADING */
+/*POST nieuwe streep. USAGE: api/strepen?userid=ID&aantal=AANTAL&ladingid=LADINGID */
 router.post('/strepen', function (req, res){
-    database_operations.createStreepje(req.query.userid, req.query.aantal, req.query.lading, function(response){
+    database_operations.createStreepje(req.query.userid, req.query.aantal, req.query.ladingid, function(response){
         res.json(response);
     });
 });
