@@ -11,6 +11,9 @@ var usersRouter = require('./routes/users');
 var strepenRouter = require('./routes/strepen');
 var ladingRouter = require('./routes/ladingen');
 
+//REST API
+var apiRouter = require('./routes/api');
+
 //Express
 var app = express();
 
@@ -30,6 +33,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/strepen', strepenRouter);
 app.use('/ladingen', ladingRouter);
+
+//REST API
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

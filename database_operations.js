@@ -35,7 +35,7 @@ exports.createUser = function(username, password, voornaam, achternaam, email, p
     database.connection.query(command).on('error', function(err){
         console.error(err);
     });
-};//NOT YET IMPLEMENTED IN ROUTE
+};
 
 exports.users = function(){
     return {
@@ -43,7 +43,21 @@ exports.users = function(){
         getAll: function(callback){
             sqlSelect = sqlQuery.select();
             //QUERY:
-            let command = sqlSelect.from('members').select('USERID', 'NAAM', 'PLAATJE').build();
+            let command = sqlSelect.from('members').select('*').build();
+            console.log(command);
+            let output = [];
+            database.connection.query(command).on('result', function(result){
+                output.push(result);
+            }).on('end', function(){
+                return callback(output);
+            }).on('error', function(err){
+                console.error(err);
+            });
+        },
+        getFromUserID: function(userID, callback){
+            sqlSelect = sqlQuery.select();
+            //QUERY:
+            let command = sqlSelect.from('members').select('*').where({USERID: userID}).build();
             console.log(command);
             let output = [];
             database.connection.query(command).on('result', function(result){
@@ -194,7 +208,7 @@ exports.createStreepje = function(userid, aantal, lading){
     });
 };
 
-exports.streepjes = function(){
+exports.strepen = function(){
     return {
         //Get all streepjes by userid VARS: userid, CALLBACK
         getFromUserID: function(userid, callback){
@@ -251,6 +265,19 @@ exports.streepjes = function(){
             }).on('error', function(err){
                 console.error(err);
             });
+        },
+        getAll: function(callback){
+            sqlSelect = sqlQuery.select();
+            //QUERY:
+            let command = sqlSelect.from('steepjes').select('*').build();
+            let output = [];
+            database.connection.query(command).on('result', function(result){
+                output.push(result);
+            }).on('end', function(){
+                return callback(output);
+            }).on('error', function(err){
+                console.error(err);
+            });
         }
     }
 };
@@ -264,10 +291,15 @@ exports.streepjes = function(){
  */
 
 //Creates a lading. VARS: datum_opened, datum_closed, streepbaar, merk, aantalkrat, itemsperkrat, prijskrat, extracent, chauffeurskosten, plaatje
-exports.createLading = function(datum_opened, datum_closed, streepbaar, merk, aantalkrat, itemsperkrat, prijskrat, extracent, chauffeurskosten, plaatje){
+exports.createLading = function(datum_opened, datum_closed, streepbaar, merk, aantalkrat, itemsperkrat, prijskrat, extracent, chauffeurskosten, plaatje, callback){
     sqlInsert = sqlQuery.insert();
     let command = sqlInsert.into('ladingen').set({DATUM_OPENED: datum_opened, DATUM_CLOSED: datum_closed, STREEPBAAR: streepbaar, MERK: merk, AANTALKRAT: aantalkrat, ITEMSPERKRAT: itemsperkrat, PRIJSKRAT: prijskrat, EXTRACENT: extracent, CHAUFFEURSKOSTEN: chauffeurskosten, PLAATJE: plaatje}).build();
-    database.connection.query(command).on('error', function(err){
+    let output = [];
+    database.connection.query(command).on('result', function(result){
+        output.push(result);
+    }).on('end', function(){
+        return callback(output);
+    }).on('error', function(err){
         console.error(err);
     });
 };
@@ -293,6 +325,20 @@ exports.ladingen = function(){
             sqlSelect = sqlQuery.select();
             //QUERY:
             let command = sqlSelect.from('ladingen').select('*').where({STREEPBAAR: 1}).build();
+            let output = [];
+            database.connection.query(command).on('result', function(result){
+                output.push(result);
+            }).on('end', function(){
+                return callback(output);
+            }).on('error', function(err){
+                console.error(err);
+            });
+        },
+        getFromID: function(ladingID, callback){
+            sqlSelect = sqlQuery.select();
+            //QUERY:
+            let command = sqlSelect.from('ladingen').select('*').where({LADINGID: ladingID}).build();
+            console.log(command);
             let output = [];
             database.connection.query(command).on('result', function(result){
                 output.push(result);

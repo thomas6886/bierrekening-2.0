@@ -1,6 +1,7 @@
 body {
-    background-color: #192a56;
-    background-image: url("../pictures/background.jpg");
+    background-color: #2c3e50;
+    background-image: url("../pictures/background_3.jpg");
+    background-size: cover;
 }
 
 p {
@@ -68,7 +69,7 @@ div.itemwrapper {
 div.itemblock {
     height: 100%;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 5px;
 
     display: flex;
@@ -91,11 +92,11 @@ div.itemblock {
 
 .bottomRowInfo {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #confirm {
-    background-color: #1abc9c;
+    background-color: #16a085;
 }
 
 .checkmark {
@@ -107,11 +108,11 @@ div.itemblock {
     transform: translate(-50%, -50%);
 }
 
-#button {
+.button {
     background-color: #ecf0f1;
 }
 
-#button:hover {
+.button:hover {
     background-color: #ffff00;
 }
 
