@@ -108,7 +108,12 @@ div.itemblock {
     transform: translate(-50%, -50%);
 }
 
-.button {
-    background-color: #ecf0f1;
+.selected {
+    background-color: #ffff00 !important;
+
 }
+
+
+
+
 
