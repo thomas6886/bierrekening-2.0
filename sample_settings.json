@@ -3,7 +3,7 @@
   "database_user": "username",
   "database_passwd": "password",
   "database_name": "database-name",
-  "poolSize": 20,
+  "poolSize": 1,
   "debug": false
 
 }

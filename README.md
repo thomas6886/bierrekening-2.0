@@ -1,4 +1,5 @@
-# bierrekening-2.0
+ bierrekening-2.0
+
 
 **file styteem**
 
@@ -19,3 +20,12 @@ In pug is het mogenlijk om met een block te werken. Zo staan in de layout files 
 **Gentella**
 
 Gentella is een HTML template die is gebruikt voor de bierrekening. Hierbij horen ook stylesheets en javascrips. Deze zijn allemaal te vinden in de build en vendors mappen in stylesheets. 
+
+npm install
+
+
+
+npm start 
+localhost:3001
+ctrl + c and y to stop npm 
+master
