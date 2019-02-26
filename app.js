@@ -7,8 +7,12 @@ var bodyParser = require('body-parser');
 
 
 //Require Routes
-var indexRouter_steven = require('./routes/index_inloggen');
+var bierrekening_inloggenRouter = require('./routes/index_inloggen');
 var bierrekeningRouter = require('./routes/index_bierrekening');
+var bierrekening_openladingenRouter = require('./routes/index_bierrekening_openladingen');
+var bierrekening_alleladingenRouter = require('./routes/index_bierrekening_alleladingen');
+var bierrekening_accountRouter = require('./routes/index_bierrekening_account');
+
 var index_streepRouter = require('./routes/index_streep');
 var index_streep_statestiekenRouter = require('./routes/index_streep_statestieken');
 //Require Routes -- EDIT THIS
@@ -38,8 +42,12 @@ app.use(bodyParser.json());
 
 
 //Setup Routes
-app.use('/steven', indexRouter_steven);
+app.use('/inloggen', bierrekening_inloggenRouter);
 app.use('/bierrekening', bierrekeningRouter);
+app.use('/bierrekening/openladingen', bierrekening_openladingenRouter);
+app.use('/bierrekening/alleladingen', bierrekening_alleladingenRouter);
+app.use('/bierrekening/account', bierrekening_accountRouter);
+
 app.use('/streep', index_streepRouter);
 app.use('/streep/statestieken', index_streep_statestiekenRouter);
 app.use('/', indexRouter);
