@@ -86,17 +86,16 @@ function streep(){
 
 function clearSelection(){
     for(let i=0; i<users.length; i++){
-        if(users[i] !== 0){
-          document.getElementById('user_'+i).classList.remove('selected');
+        if(users[i] > 0){
+            document.getElementById('user_'+i).classList.remove('selected');
         }
-
     }
     document.getElementById('lading_'+currLading).classList.remove('selected');
     currLading = null;
 }
 
 function createStreep(userid, aantal, ladingid){
-    $.post( '/api/strepen?userid='+userid+'&aantal='+aantal+'&ladingid='+ladingid, function() {
+    $.post('/api/strepen?userid='+userid+'&aantal='+aantal+'&ladingid='+ladingid, function() {
 
     })
 }
