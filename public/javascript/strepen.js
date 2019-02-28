@@ -1,10 +1,10 @@
-var users = [];
+var streepjes = [];
 var currLading = null;
 
 function selectLading(ladingID){
     if(currLading != ladingID){
         if(currLading != null){
-          document.getElementById('lading_'+currLading).classList.remove('selected');
+          clearSelection();
         }
         currLading = ladingID;
         document.getElementById('lading_'+ladingID).classList.add('selected');
@@ -70,7 +70,7 @@ function populateLadingen(){
 function streep(){
     if(currLading != null){
         for(let i=0; i<users.length; i++){
-            if(users[i] !== 0){
+            if(users[i] > 0){
               createStreep(i, users[i], currLading);
             }
         }
