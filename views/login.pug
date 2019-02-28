@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title= title
+    title= Bierrekening
     //Bootstrap
     link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap-grid.min.css')
@@ -34,6 +34,20 @@ html
 
 
   body
-    block bier
+    .login
+
+      .login_wrapper
+        .animate.form.login_form
+          section.login_content
+            form
+              h1 Login Form
+              div
+                input.form-control(type='text', placeholder='Username', required='')
+              div
+                input.form-control(type='password', placeholder='Password', required='')
+              div
+                a.btn.btn-default.submit(href='dashboard') Log in
+                a.btn.btn-default.submit(href='strepen') Strepen
+              .clearfix
 
 

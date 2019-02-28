@@ -40,7 +40,7 @@ html
                     .left_col.scroll-view
                         .profile.clearfix
                             .profile_pic
-                                img.img-circle.profile_img(src='steven.jpg')
+                                img.img-circle.profile_img(src='/steven.jpg')
                             .profile_info
                                 span Welkom
                                 h3 Steven Lankheet
@@ -52,27 +52,22 @@ html
                                 h3 Bierrekening
                                 ul.nav.side-menu
                                     li.breed
-                                        a(href='/bierrekening')
+                                        a(href='/dashboard')
                                             i.fa.fa-home
                                             |  Home
-                                    li.breed
-                                        a(href='/bierrekening/openladingen')
-                                            i.fa.fa-edit
-                                            |  Open ladingen
-
 
                                     li.breed
-                                        a(href='/bierrekening/alleladingen')
+                                        a(href='/dashboard/ladingen')
                                             i.fa.fa-table
                                             |  Alle ladingen
 
                                     li.breed
-                                        a(href='/bierrekening/account')
+                                        a(href='/dashboard/account')
                                             i.fa.fa-user
                                             |  Account
 
                                     li.breed
-                                        a(href='/inloggen')
+                                        a(href='/login')
                                             i.glyphicon.glyphicon-off
                                             |  Uitloggen
 
@@ -159,5 +154,7 @@ html
 
 
 
-                block home
+                block homepage
+                block lading
+                block account
 

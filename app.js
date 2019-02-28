@@ -6,23 +6,12 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 
+
 //Require Routes
-var bierrekening_inloggenRouter = require('./routes/index_inloggen');
-var bierrekeningRouter = require('./routes/index_bierrekening');
-var bierrekening_openladingenRouter = require('./routes/index_bierrekening_openladingen');
-var bierrekening_alleladingenRouter = require('./routes/index_bierrekening_alleladingen');
-var bierrekening_accountRouter = require('./routes/index_bierrekening_account');
-
-var index_streepRouter = require('./routes/index_streep');
-var index_streep_statestiekenRouter = require('./routes/index_streep_statestieken');
-//Require Routes -- EDIT THIS
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var strepenRouter = require('./routes/strepen');
-var ladingRouter = require('./routes/ladingen');
 var apiRouter = require('./routes/api');
-
-
+var dashboardRouter = require('./routes/dashboard');
+var strepenRouter = require('./routes/strepen');
 //REST API
 
 
@@ -42,18 +31,9 @@ app.use(bodyParser.json());
 
 
 //Setup Routes
-app.use('/inloggen', bierrekening_inloggenRouter);
-app.use('/bierrekening', bierrekeningRouter);
-app.use('/bierrekening/openladingen', bierrekening_openladingenRouter);
-app.use('/bierrekening/alleladingen', bierrekening_alleladingenRouter);
-app.use('/bierrekening/account', bierrekening_accountRouter);
-
-app.use('/streep', index_streepRouter);
-app.use('/streep/statestieken', index_streep_statestiekenRouter);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/strepen', strepenRouter);
-app.use('/ladingen', ladingRouter);
+app.use('/dashboard', dashboardRouter);
 app.use('/api', apiRouter);
 
 
