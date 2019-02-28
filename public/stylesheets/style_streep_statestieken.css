@@ -1,0 +1,131 @@
+html {
+    height: 100%;
+    width:100%;
+}
+
+body {
+    background: #30303A;
+    font-family: Roboto;
+    height:100%;
+    width: 100%;
+    margin:0;
+}
+
+#main {
+    height: 100%;
+    min-width: 100%;
+    display: table;
+    margin-top: 5%;
+}
+
+#wrapper {
+    display: table-cell;
+    height: 100%;
+    width:100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#numbers {
+    /*width: 3vw;*/
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    /*float: left;*/
+}
+#numbers li {
+    text-align: right;
+    padding-right: 1em;
+    list-style: none;
+    height: 9vh;
+    /*border-bottom: 1px solid #444;*/
+    position: relative;
+    bottom: 9vh;
+    margin:0;
+}
+#numbers li:last-child {
+    height: 9vh;
+}
+#numbers li span {
+    color: #eee;
+    position: absolute;
+    bottom: 0;
+    right: 0.6vw;
+}
+#bars {
+    vertical-align: middle;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.2);
+    /*width: 600px;*/
+    height: 90vh;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 0 1px #444;
+
+}
+#bars li {
+    display: table-cell;
+    min-width: 15vw;
+    height: 90vh;
+    margin: 0;
+    /*vertical-align: middle;*/
+    position: relative;
+    text-align: center;
+
+}
+#bars li .bar {
+    display: block;
+    min-width: 12vw;
+    left: 1.5vw;
+    margin-right: auto;
+    margin:0;
+    background: #49E;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+#bars li .bar:hover {
+    background: #5AE;
+    cursor: pointer;
+}
+#bars li .bar:hover:before {
+    color: white;
+    content: attr(data-percentage) "%";
+    position: relative;
+    bottom: 3vh;
+}
+#bars li span.onder  {
+    color: #eee;
+    width: 100%;
+    position: absolute;
+    bottom: -4vmin;
+    left: 0;
+    text-align: center;
+    font-size: 3.0vmin;
+}
+
+.boven {
+    color: #eee;
+    /*width: 100%;*/
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    overflow: visible;
+    white-space: nowrap;
+    font-size: 3vmin;
+}
+#laatsestreepjes {
+    color: whitesmoke;
+    font-size: 3.0vmin;;
+}
+#qrcode {
+    width:160px;
+    height:160px;
+    margin-top:15px;
+}

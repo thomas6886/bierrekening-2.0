@@ -5,14 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-//Require Routes -- EDIT THIS
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var strepenRouter = require('./routes/strepen');
-var ladingRouter = require('./routes/ladingen');
 
-//REST API
+
+//Require Routes
+var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
+var dashboardRouter = require('./routes/dashboard');
+var strepenRouter = require('./routes/strepen');
+//REST API
+
 
 //Express
 var app = express();
@@ -28,14 +29,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-//Setup Routes -- EDIT THIS
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/strepen', strepenRouter);
-app.use('/ladingen', ladingRouter);
 
-//REST API
+//Setup Routes
+app.use('/', indexRouter);
+app.use('/strepen', strepenRouter);
+app.use('/dashboard', dashboardRouter);
 app.use('/api', apiRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,5 +52,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

@@ -1,0 +1,244 @@
+extends layout_dashboard
+block homepage
+        .col-lg-10.col-md-12
+            .right_col(role='main')
+                // top tiles
+                .row.tile_count.no-margin
+                    .col-md-2.col-sm-4.col-xs-6.tile_stats_count
+                        span.count_top
+                            i.fa.fa-user
+                            |  Bier 2019
+                        .count#persoonlijkjaar 000
+
+                        span.count_bottom
+                            i.green 4%
+                            |  vergeleken met vorige maand
+                    .col-md-2.col-sm-4.col-xs-6.tile_stats_count
+                        span.count_top
+                            i.fa.fa-clock-o
+                            |  Biertjes deze maand
+                        .count#persoonlijkmaand 000
+                        span.count_bottom
+                            i.green
+                                i.fa.fa-sort-asc
+                                | 3%
+                            |  vergeleken met vorige maand
+                    .col-md-2.col-sm-4.col-xs-6.tile_stats_count
+                        span.count_top
+                            i.fa.fa-user
+                            |  Totaal aantal biertjes
+                        .count#persoonlijktotaal 000
+                        span.count_bottom
+                            i.green
+                                i.fa.fa-sort-asc
+                                | 34%
+                            |  Van vorig jaar
+                    .col-md-2.col-sm-4.col-xs-6.tile_stats_count
+                        span.count_top
+                            i.fa.fa-user
+                            |  Iederen totaal 2019
+                        .count#totaaljaar 000
+                        span.count_bottom
+                            i.red
+                                i.fa.fa-sort-desc
+                                | 12%
+                            |  Van vorig jaar
+                    .col-md-2.col-sm-4.col-xs-6.tile_stats_count
+                        span.count_top
+                            i.fa.fa-user
+                            |  Totaal ooit
+                        .count#totaaltotaal 000
+                        span.count_bottom
+                            i.green
+                                i.fa.fa-sort-asc
+                                | 34%
+                            |  From last Week
+                    .col-md-2.col-sm-4.col-xs-6.tile_stats_count
+                        span.count_top
+                            i.fa.fa-user
+                            |  Bier 2019
+                        .count#persoonlijksaldo
+                            .glyphicon.glyphicon-euro
+
+                        span.count_bottom
+
+                            |  Voorloopig saldo
+
+                // /top tiles
+
+                .row
+                    .col-md-6.col-sm-6.col-xs-12
+                        .x_panel
+                            .x_title
+                                h2 Prestaties
+                                ul.nav.navbar-right.panel_toolbox
+                                    li
+                                        a.collapse-link
+                                            i.fa.fa-chevron-up
+                                    li.dropdown
+                                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                                            i.fa.fa-wrench
+                                        ul.dropdown-menu(role='menu')
+                                            li
+                                                a(href='#') Settings 1
+                                            li
+                                                a(href='#') Settings 2
+                                    li
+                                        a.close-link
+                                            i.fa.fa-close
+                                .clearfix
+                            .x_content
+                                h4 Hoe goed doe jij het
+                                .widget_summary
+                                    .w_left.w_25
+                                        span Van kant
+                                    .w_center.w_55
+                                        .progress
+                                            .progress-bar.bg-green(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100')#prestatie_kant
+                                                span.sr-only 60% Complete
+                                    .w_right.w_20
+                                        span 30x
+                                    .clearfix
+                                .widget_summary
+                                    .w_left.w_25
+                                        span van kant 2018
+                                    .w_center.w_55
+                                        .progress
+                                            .progress-bar.bg-green(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100' )#prestatie_kant_jaar
+                                                span.sr-only 20% Complete
+                                    .w_right.w_20
+                                        span 4x
+                                    .clearfix
+                                .widget_summary
+                                    .w_left.w_25
+                                        span 1000 Bier P/J
+                                    .w_center.w_55
+                                        .progress
+                                            .progress-bar.bg-green(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100')#prestatie_1
+                                                span.sr-only 60% Complete
+                                    .w_right.w_20
+                                        span 1x
+                                    .clearfix
+                                .widget_summary
+                                    .w_left.w_25
+                                        span leipe stats
+                                    .w_center.w_55
+                                        .progress
+                                            .progress-bar.bg-green(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100')#prestatie_2
+                                                span.sr-only 60% Complete
+                                    .w_right.w_20
+                                        span 3x
+                                    .clearfix
+                                .widget_summary
+                                    .w_left.w_25
+                                        span leipe stats
+                                    .w_center.w_55
+                                        .progress
+                                            .progress-bar.bg-green(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100')#prestatie_3
+                                                span.sr-only 60% Complete
+                                    .w_right.w_20
+                                        span 3x
+                                    .clearfix
+                    .col-md-6.col-sm-6.col-xs-12
+                        .x_panel
+                            .x_title
+                                h2
+                                    | Laatste streepjes
+                                ul.nav.navbar-right.panel_toolbox
+                                    li
+                                        a.collapse-link
+                                            i.fa.fa-chevron-up
+                                    li.dropdown
+                                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                                            i.fa.fa-wrench
+                                        ul.dropdown-menu(role='menu')
+                                            li
+                                                a(href='#') Settings 1
+                                            li
+                                                a(href='#') Settings 2
+                                    li
+                                        a.close-link
+                                            i.fa.fa-close
+                                .clearfix
+                            .x_content.extrapadding
+                                table.table.table-striped#myTable2
+                                    thead
+                                        tr
+                                            th Naam
+                                            th Soort
+                                            th Tijd
+                                            th dag
+
+                    .clearfix
+                .row
+                    .col-md-6.col-sm-6.col-xs-12
+                        .x_panel
+                            .x_title
+                                h2
+                                    | Relatief aantal biertjes per maand
+                                    small Sessions
+                                ul.nav.navbar-right.panel_toolbox
+                                    li
+                                        a.collapse-link
+                                            i.fa.fa-chevron-up
+                                    li.dropdown
+                                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                                            i.fa.fa-wrench
+                                        ul.dropdown-menu(role='menu')
+                                            li
+                                                a(href='#') Settings 1
+                                            li
+                                                a(href='#') Settings 2
+                                    li
+                                        a.close-link
+                                            i.fa.fa-close
+                                .clearfix
+                            .x_content
+                                canvas#lineChart1
+                    .col-md-6.col-sm-6.col-xs-12
+                        .x_panel
+                            .x_title
+                                h2
+                                    | Gedronken biertjes
+                                    small Sessions
+                                ul.nav.navbar-right.panel_toolbox
+                                    li
+                                        a.collapse-link
+                                            i.fa.fa-chevron-up
+                                    li.dropdown
+                                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                                            i.fa.fa-wrench
+                                        ul.dropdown-menu(role='menu')
+                                            li
+                                                a(href='#') Settings 1
+                                            li
+                                                a(href='#') Settings 2
+                                    li
+                                        a.close-link
+                                            i.fa.fa-close
+                                .clearfix
+                            .x_content
+                                canvas#mybarChart1
+                .clearfix
+                p
+                    | klik
+                    a(href='https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&cad=rja&uact=8&ved=2ahUKEwiK-pzI14vgAhX8QRUIHR51Dh4QwqsBMAJ6BAgFEAc&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ&usg=AOvVaw0aHtehaphMhOCAkCydRLZU')  hier
+                    |  voor meer statestieken
+
+
+
+        script(src='/stylesheets//vendors/jquery/dist/jquery.min.js')
+        // Bootstrap
+        script(src='/stylesheets//vendors/bootstrap/dist/js/bootstrap.min.js')
+        // FastClick
+        script(src='/stylesheets//vendors/fastclick/lib/fastclick.js')
+        // NProgress
+        script(src='/stylesheets//vendors/nprogress/nprogress.js')
+        // Chart.js
+        script(src='/stylesheets//vendors/Chart.js/dist/Chart.min.js')
+        // Custom Theme Scripts
+        script(src='/stylesheets//build/js/custom.min.js')
+
+
+
+

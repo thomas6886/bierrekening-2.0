@@ -1,0 +1,186 @@
+.glyphicon{
+    font-size: 12vw;
+    vertical-align: middle;
+    object-fit:contain;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+progress::-webkit-progress-bar {
+    border: solid #ffffff 0.01vw;
+    background-color: #eee;
+    border-radius: 0.3vw;
+    box-shadow: 0 0.2vw 0.5vh rgba(0, 0, 0, 0.2) inset;
+}
+
+
+
+progress.groen::-webkit-progress-value {
+    background:#00C853;
+    border-radius: 0.3vw;
+}
+
+progress.rood::-webkit-progress-value {
+    background:#D50000;
+    border-radius: 0.3vw;
+}
+
+progress.grijs::-webkit-progress-value {
+    background:darkgray;
+    border-radius: 0.3vw;
+}
+
+progress.paars::-webkit-progress-value {
+    background:#AA00FF;
+    border-radius: 0.3vw;
+}
+
+
+
+body { margin:0; padding:0; float:left;}
+table {margin:0; top:0;border-collapse:separate; border-spacing: 0.8vw 1.4vh;}
+td {margin:0px;
+
+    overflow:hidden;
+    border-radius:5%;
+
+    background-color: #E5E5E5;
+    margin-bottom:2.0vh;
+
+    width:15.5vw;
+    height:23.2vh;
+    max-width:15.5vw;
+    min-width:15.5vw;
+    max-height:23.2vh;
+    min-height:23.2vh;
+
+    vertical-align: top;
+}
+
+progress {position:absolute; height:2.6vh; width:13vw; border: 0; }
+
+
+meter {margin-top: 2vh; margin-bottom: 1vh; height:2vh; width:13vw;   margin-left: auto;  margin-right: auto ; overflow: hidden; border: 0; vertical-align: top;}
+
+img{vertical-align: middle; height: 100%; width: 100%; object-fit:contain; padding-top: 1.5vh}
+
+.linkerkant{float: left;margin-top:0.0vh;margin-left:0.8vw;}
+.linksboven{height:74.3vh;overflow-y:scroll;overflow-x:hidden;}
+.menu { border-spacing: 0.0vw 1.4vh;}
+.linksonder{margin-top: 1.0vh; float:none;}
+.okknop{border-spacing: 0.0vw 0.0vh;}
+
+.rechterkant{width:82.8vw;float:left; margin-top:0.0vh;}
+.personen{height:74.3vh; overflow-y:scroll;overflow-x:hidden;}
+.rechtsonder{margin-top: 1.0vh; overflow-x:scroll;overflow-y:hidden;}
+.bieren{border-spacing: 0.8vw 0.0vh;}
+
+
+.headcol {box-shadow:0px 0px 0px 1.0vh black inset; vertical-align: middle;}
+
+.persoon { background:white; box-shadow:0px 0px 0px 1.0vh  inset; }
+.persoon_bier0 { background:white; background-color:#81C784;}
+.persoon_bier1 { background:white;  background-color:#7986CB;}
+.persoon_bier2 { background:white;  background-color: #E57373;}
+.persoon_bier3 { background:white;  background-color: #FFD54F;}
+.persoon_bier4 { background:white;  background-color: #BA68C8;}
+
+.persoon1 { background:white; box-shadow:0px 0px 0px 1.0vh #e29818 inset; }
+.persoon2 { background:white; box-shadow:0px 0px 0px 1.0vh silver inset; }
+.persoon3 { background:white; box-shadow:0px 0px 0px 1.0vh #965A38 inset; }
+
+
+
+.bier0_selected{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #388E3C inset; background-color:#81C784;}
+.bier1_selected{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #303F9F inset; background-color:#7986CB;}
+.bier2_selected{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #D32F2F inset; background-color: #E57373;}
+.bier3_selected{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #FFC107 inset; background-color: #FFD54F;}
+.bier4_selected{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #9C27B0 inset; background-color: #BA68C8;}
+
+.bier0{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #388E3C inset;}
+.bier1{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #303F9F inset;}
+.bier2{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #D32F2F inset;}
+.bier3{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #FFC107 inset;}
+.bier4{vertical-align:middle; box-shadow:0px 0px 0px 1.0vh #9C27B0 inset;}
+
+
+.percentage_bar{position:relative; margin-top: 1.6vh; margin-bottom: 0.8vh; height:2.6vh; width:13vw;   margin-left: auto;  margin-right: auto ; overflow: hidden; padding: 0;}
+.persoon_plaatje{height:16.5vh;  width:13.5vw; margin-left: auto;  margin-right: auto ; overflow: hidden; }
+.plaatje{height:20vh; width:13.5vw; margin-left: auto; margin-right: auto ; overflow: hidden; }
+.aantal_biertjes{position:absolute;  margin-left: 0.2vw; vertical-align: middle; color:black; opacity:1; font-size:2.0vh; font-weight:bold; line-height:2.6vh}
+.aantal_streepjes{position:absolute; height:100%; margin-left: 11.0vw; vertical-align: middle; color:black; opacity:1; font-size:2.0vh; font-weight:bold; line-height:2.6vh}
+
+.week{
+    margin-top: 2vh;
+}
+
+.x_panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 0px 0x;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    opacity: 1;
+    transition: all .2s ease
+}
+.x_title {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px 3px 3px;
+    margin-bottom: 10px;
+    font-size: 6vh;
+    text-align: center;
+}
+.x_title .filter {
+    width: 40%;
+    float: right
+}
+.x_title h2 {
+    margin: 3px 0 6px;
+    float: left;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+.x_title h2 small {
+    margin-left: 10px
+}
+.x_title span {
+    color: #BDBDBD
+}
+.x_content {
+    padding: 0 5px 6px;
+    position: relative;
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-top: 5px
+}
+.x_content h4 {
+    font-size: 30px;
+    font-weight: 500
+}
+legend {
+    padding-bottom: 7px
+}
+
+#qrcode {
+    width: 40vw;
+    height: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.panel-button {
+     margin: 4vh 4vw 4vh 4vw;
+     padding: 1vh 1vw 1vh 1vw;
+     font-size: 4vh;
+ }

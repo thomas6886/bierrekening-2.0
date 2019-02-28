@@ -1,0 +1,29 @@
+extends ../layout
+block content
+    .container-fluid
+        .row.topblock
+            .col-2
+                .featurelist
+                    div.col-12.itemwrapper
+                        div.itemblock.button
+                    div.col-12.itemwrapper
+                        div.itemblock.button
+                    div.col-12.itemwrapper
+                        div.itemblock.button
+                    div.col-12.itemwrapper
+                        div.itemblock.button
+            .col-10
+                .usersList#usersList
+
+
+
+        .row.bottomblock
+            .col-2
+                .ladinglist
+                    div.col-12.itemwrapper
+                        div.itemblock#confirm(onClick="streep()")
+                            img.checkmark(src="pictures/icons/checkmark.png")
+            .col-10
+                .ladinglist#ladingList
+
+
