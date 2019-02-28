@@ -1,6 +1,6 @@
 body {
-    background-color: #2c3e50;
-    background-image: url("../pictures/background_3.jpg");
+    background-color: #ecf0f1;
+    /*background-image: url("../pictures/background_3.jpg");*/
     background-size: cover;
 }
 
@@ -64,6 +64,7 @@ div.ladinglist{
 div.itemwrapper {
     height: 25vh;
     padding: 5px;
+    width: 20%;
 }
 
 div.itemblock {
@@ -71,9 +72,10 @@ div.itemblock {
     background-color: white;
     border-radius: 2px;
     padding: 5px;
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
+    flex-basis: 50%;
 }
 
 .profilePicture {
@@ -110,7 +112,6 @@ div.itemblock {
 
 .selected {
     background-color: #ffff00 !important;
-
 }
 
 

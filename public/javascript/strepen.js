@@ -1,8 +1,11 @@
-var currUsers = [];
+var users = [];
 var currLading = null;
 
 function selectLading(ladingID){
     if(currLading != ladingID){
+        if(currLading != null){
+          document.getElementById('lading_'+currLading).classList.remove('selected');
+        }
         currLading = ladingID;
         document.getElementById('lading_'+ladingID).classList.add('selected');
         console.log(document.getElementById('lading_'+ladingID));
@@ -15,17 +18,13 @@ function selectLading(ladingID){
     console.log(currLading);
 }
 
-function selectByElementID(elementID){
-    document.getElementById(elementID).classList.add(" selected");
-}
-
 function selectUser(userID){
     if(currLading != null){
-        if(!currUsers.includes(userID)){
-            currUsers.push(userID);
+        if(users[userID] === 0){
+            users[userID] = 1;
             document.getElementById('user_'+userID).classList.add('selected');
         }else{
-            currUsers.splice(currUsers.indexOf(userID), 1);
+            users[userID] = 0;
             document.getElementById('user_'+userID).classList.remove('selected');
         }
 
@@ -37,19 +36,19 @@ function selectUser(userID){
             dangerMode: true,
         })
     }
-    console.log(currUsers);
 }
 
 function populateUsers(){
     var userContent = '';
     $.getJSON( '/api/users', function( data ) {
         $.each(data, function(){
-            userContent += '<div class="col-2 itemwrapper">';
+            userContent += '<div class="itemwrapper">';
             userContent += '<div class="itemblock user" id=user_'+this.USERID+' onclick="selectUser('+this.USERID+')">';
             userContent += '<div class="topRowInfo"><p>12</p><p>18</p></div>';
             userContent += '<img class="profilePicture" src="pictures/profile_pictures/' + this.PLAATJE + '">';
             userContent += '<div class="bottomRowInfo"><p>'+this.NAAM+'</p></div>';
-            userContent += '</div></div>'
+            userContent += '</div></div>';
+            users[this.USERID] = 0;
         });
         $('#usersList').html(userContent);
     });
@@ -59,7 +58,7 @@ function populateLadingen(){
     var ladingenContent = '';
     $.getJSON( '/api/ladingen/active', function( data ) {
         $.each(data, function(){
-            ladingenContent += '<div class="col-2 itemwrapper">';
+            ladingenContent += '<div class="itemwrapper">';
             ladingenContent += '<div class="itemblock button lading" id=lading_'+this.LADINGID+' onclick="selectLading('+this.LADINGID+')">';
             ladingenContent += '<img class="profilePicture" src="pictures/merken/' + this.PLAATJE + '">';
             ladingenContent += '</div></div>'
@@ -69,9 +68,11 @@ function populateLadingen(){
 }
 
 function streep(){
-    if((currLading != null)&&currUsers.length > 0){
-        for(let i=0; i<currUsers.length; i++){
-            createStreep(currUsers[i], 1, currLading);
+    if(currLading != null){
+        for(let i=0; i<users.length; i++){
+            if(users[i] !== 0){
+              createStreep(i, users[i], currLading);
+            }
         }
         clearSelection();
         swal({
@@ -84,11 +85,13 @@ function streep(){
 }
 
 function clearSelection(){
-    for(let i=0; i<currUsers.length; i++){
-        document.getElementById('user_'+currUsers[i]).classList.remove('selected');
+    for(let i=0; i<users.length; i++){
+        if(users[i] !== 0){
+          document.getElementById('user_'+i).classList.remove('selected');
+        }
+
     }
     document.getElementById('lading_'+currLading).classList.remove('selected');
-    currUsers = [];
     currLading = null;
 }
 
