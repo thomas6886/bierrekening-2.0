@@ -1,0 +1,115 @@
+body {
+    background-color: #ecf0f1;
+    /*background-image: url("../pictures/background_3.jpg");*/
+    background-size: cover;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+h {
+    font-family: 'Raleway', sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/*START BOOTSTRAP EDIT*/
+.container-fluid {
+    padding: 0px 15px;
+}
+
+.col-2 {
+    padding: 0px;
+}
+
+.col-10 {
+    padding: 0px;
+}
+
+/*END BOOTSTRAP EDIT*/
+
+div.topblock {
+    height: 75vh;
+}
+
+div.bottomblock {
+    height: 25vh;
+}
+
+div.usersList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 75vh;
+}
+
+div.featurelist{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 75vh;
+}
+
+div.ladinglist{
+    display: flex;
+    overflow-x: auto;
+    max-height: 25vh;
+}
+
+div.itemwrapper {
+    height: 25vh;
+    padding: 5px;
+    width: 20%;
+}
+
+div.itemblock {
+    height: 100%;
+    background-color: white;
+    border-radius: 2px;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.profilePicture {
+    min-height: 70%;
+    max-height: 70%;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+.topRowInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomRowInfo {
+    display: flex;
+    justify-content: center;
+}
+
+#confirm {
+    background-color: #16a085;
+}
+
+.checkmark {
+    max-width: 75%;
+    max-height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.selected {
+    background-color: #ffff00 !important;
+}
