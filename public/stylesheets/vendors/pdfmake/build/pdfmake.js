@@ -2402,7 +2402,7 @@
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
 	 * @license
 	 * lodash 3.10.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern -d -o ./index.js`
+	 * Build: `lodash modern -d -o ./dashboard_index.js`
 	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -22560,7 +22560,7 @@
 	exports.UNZIP = 7;
 
 	/**
-	 * Emulate Node's zlib C++ layer for use by the JS layer in index.js
+	 * Emulate Node's zlib C++ layer for use by the JS layer in dashboard_index.js
 	 */
 	function Zlib(mode) {
 	  if (mode < exports.DEFLATE || mode > exports.UNZIP)

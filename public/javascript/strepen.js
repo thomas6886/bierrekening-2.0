@@ -4,7 +4,7 @@ var currLading = null;
 function selectLading(ladingID){
     if(currLading != ladingID){
         if(currLading != null){
-          document.getElementById('lading_'+currLading).classList.remove('selected');
+            document.getElementById('lading_'+currLading).classList.remove('selected');
         }
         currLading = ladingID;
         document.getElementById('lading_'+ladingID).classList.add('selected');
@@ -71,7 +71,7 @@ function streep(){
     if(currLading != null){
         for(let i=0; i<users.length; i++){
             if(users[i] !== 0){
-              createStreep(i, users[i], currLading);
+                createStreep(i, users[i], currLading);
             }
         }
         clearSelection();
@@ -87,7 +87,7 @@ function streep(){
 function clearSelection(){
     for(let i=0; i<users.length; i++){
         if(users[i] !== 0){
-          document.getElementById('user_'+i).classList.remove('selected');
+            document.getElementById('user_'+i).classList.remove('selected');
         }
 
     }

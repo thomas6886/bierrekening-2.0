@@ -2,7 +2,7 @@ var PROD = process.argv.indexOf('-p') >= 0;
 
 module.exports = {
     entry: {
-        'echarts': __dirname + '/index.js',
+        'echarts': __dirname + '/dashboard_index.js',
         'echarts.simple': __dirname + '/index.simple.js',
         'echarts.common': __dirname + '/index.common.js'
     },

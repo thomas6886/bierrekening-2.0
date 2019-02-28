@@ -18,7 +18,7 @@ require.modules = {};
 require.resolve = function (path){
     var orig = path
       , reg = path + '.js'
-      , index = path + '/index.js';
+      , index = path + '/dashboard_index.js';
     return require.modules[reg] && reg
       || require.modules[index] && index
       || orig;
@@ -1084,14 +1084,14 @@ module.exports = function(suite){
 
 }); // module: interfaces/exports.js
 
-require.register("interfaces/index.js", function(module, exports, require){
+require.register("interfaces/dashboard_index.js", function(module, exports, require){
 
 exports.bdd = require('./bdd');
 exports.tdd = require('./tdd');
 exports.qunit = require('./qunit');
 exports.exports = require('./exports');
 
-}); // module: interfaces/index.js
+}); // module: interfaces/dashboard_index.js
 
 require.register("interfaces/qunit.js", function(module, exports, require){
 
@@ -2819,7 +2819,7 @@ function on(el, event, fn) {
 
 }); // module: reporters/html.js
 
-require.register("reporters/index.js", function(module, exports, require){
+require.register("reporters/dashboard_index.js", function(module, exports, require){
 
 exports.Base = require('./base');
 exports.Dot = require('./dot');
@@ -2839,7 +2839,7 @@ exports.JSONCov = require('./json-cov');
 exports.HTMLCov = require('./html-cov');
 exports.JSONStream = require('./json-stream');
 
-}); // module: reporters/index.js
+}); // module: reporters/dashboard_index.js
 
 require.register("reporters/json-cov.js", function(module, exports, require){
 

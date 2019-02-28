@@ -7,7 +7,7 @@ Bentrot.net is opgedeeld in de bierrekening en de streepapp. De bierrekening is 
 
 Voor elke pagina is er een route aangemaakt in de map routes. Waarin voor elke pagina een pug file wordt aangeroepen. Deze staan in het mapje vieuws. Elke pagina betaat uit een layout file en een index file. Layout is de hoofdfile, en index wordt daar aan toe gevoegd.
 
-naast de pug files en routes zijn er ook nog andere javascripts die gebruikt worden. Hierin staan alle functies om de pagina's te vullen. De belangrijkste hiervoor zijn strepen.js en bierrekening.js respectievelijk voor de streepapp en voor de bierrekening. De stylesheets voor de bierrekening en de streep app zijn style.css en style_streep.css
+naast de pug files en routes zijn er ook nog andere javascripts die gebruikt worden. Hierin staan alle functies om de pagina's te vullen. De belangrijkste hiervoor zijn strepen_old.js en dashboard_index.js respectievelijk voor de streepapp en voor de bierrekening. De stylesheets voor de bierrekening en de streep app zijn style.css en style_streep.css
 
 
 

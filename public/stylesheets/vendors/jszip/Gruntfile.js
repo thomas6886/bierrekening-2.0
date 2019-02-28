@@ -110,7 +110,7 @@ module.exports = function(grunt) {
     browserify: {
       all: {
         files: {
-          'dist/jszip.js': ['lib/index.js']
+          'dist/jszip.js': ['lib/dashboard_index.js']
         },
         options: {
           browserifyOptions: {

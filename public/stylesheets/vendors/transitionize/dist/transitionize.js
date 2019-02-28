@@ -57,7 +57,7 @@ require.aliases = {};
  *
  * Lookup:
  *
- *   - PATH/index.js
+ *   - PATH/dashboard_index.js
  *   - PATH.js
  *   - PATH
  *
@@ -73,7 +73,7 @@ require.resolve = function(path) {
     path,
     path + '.js',
     path + '.json',
-    path + '/index.js',
+    path + '/dashboard_index.js',
     path + '/index.json'
   ];
 

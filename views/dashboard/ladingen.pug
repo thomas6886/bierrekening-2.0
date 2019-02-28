@@ -25,10 +25,13 @@ block lading
                             i.fa.fa-close
                 .clearfix
             .x_content.extrapadding
-                table.table.table-striped
-                    thead
-                        tr
-                            th Naam
-                            th Soort
-                            th Tijd
-                            th dag
+                    table.table.table-striped#ladingList
+                        thead
+                            th ID
+                            th Merk
+                            th Knop
+                        tbody
+
+
+    append head
+        script(src='/javascript/dashboard/ladingen.js')
