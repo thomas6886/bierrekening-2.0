@@ -26,12 +26,24 @@ block lading
                 .clearfix
             .x_content.extrapadding
                     table.table.table-striped#ladingList
+                                thead
+                                    th ID
+                                    th Merk
+                                    th Knop
+                                tbody
+                    table.table.table-striped
                         thead
                             th ID
-                            th Merk
-                            th Knop
+                            th Datum open
+                            th Datum gesloten
+                            th Aantal krat
                         tbody
-
+                            each item in rows
+                                tr
+                                td= item.LADINGID
+                                td= item.DATUM_OPENED
+                                td= item.DATUM_CLOSED
+                                td= item.AANTALKRAT
 
     append head
         script(src='/javascript/dashboard/ladingen.js')
