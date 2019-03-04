@@ -8,7 +8,7 @@ $(function () {
                 var row = table.insertRow();
                 for(var j = 1; j < 6; j++) {
                         var cell = row.insertCell(0);
-                        cell.innerHTML="<td id=\"'.$person_id[$i].'\" class=\"'.$gold.'\" ><div class=\"percentage_bar\"><progress ></progress> <span class=\"aantal_biertjes\">90</span> <span id=\"'.$person_id[$i].'_teller\" class=\"aantal_streepjes\"></span></div><div class=\"persoon_plaatje\"><img src='steven.jpg' alt='hello'/></img></div></td>";
+                        cell.innerHTML="<td <div class=\"persoon_plaatje\"><img src='steven.jpg' alt='hello'/></img></div></td>";
 
 
                 }
@@ -22,7 +22,7 @@ $(function () {
         var row = table.insertRow();
         for (var i = 1; i < 8; i++) {
                 var cell = row.insertCell(0);
-                cell.innerHTML="<td id=\"bier'.$i.'\" class=\"bier'.$i.'\" ><div class=\"plaatje\"><img src='/pictures/grolsch_pilsner_klein.png' alt='hello' ></div></td>";
+                cell.innerHTML="<td <div class=\"plaatje\"><img src='/pictures/grolsch_pilsner_klein.png' alt='hello' ></div></td>";
 
 
         }

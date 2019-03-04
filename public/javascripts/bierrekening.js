@@ -152,6 +152,7 @@ $(function(){
             html: '<div id="qrcode"></div>',
             onOpen: () => {
                 var geld = $(this).attr("data-panelid");
+                var naam = "saldo van steven";
                 let qrcode = new QRCode("qrcode", {
                     width: 500,
                     height: 500,
@@ -161,7 +162,7 @@ $(function(){
                 });
 
                 //var text= "BCD0011SCTINGBNL2ASteven LankheetNL59INGB0669324469EUR20";
-                var text= "BCD\n001\n1\nSCT\nINGBNL2A\nSteven Lankheet\nNL59INGB0669324469\nEUR"+geld;
+                var text= "BCD\n001\n1\nSCT\nINGBNL2A\nSteven Lankheet\nNL59INGB0669324469\nEUR"+geld+"\n\n\n"+naam;
                 qrcode.clear();
                 qrcode.makeCode(text);
             },
