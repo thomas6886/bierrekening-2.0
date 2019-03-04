@@ -20,6 +20,15 @@ router.get('/ladingen', function(req, res, next) {
     });
 });
 
+router.get('/ladingen/:ladingid', function(req,res, next) {
+    console.log("ladinge_info aangeroepen");
+    database_operations.strepen().getFromLading(req.params.ladingid, function(response){
+        res.render('dashboard/lading_info', {rows:response, lading_nummer:req.params.ladingid});
+    });
+});
+
+
+
 /*
 router.get('/ladingen', function(req, res, next) {
     var table_data = database_operations.ladingen().getAllActive();

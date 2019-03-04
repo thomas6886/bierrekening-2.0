@@ -2,7 +2,7 @@ extends layout_dashboard
 
 
 block lading
-    h1 alle ladingen
+    h1 Info pagina van lading #{lading_nummer}
     .col-md-6.col-sm-6.col-xs-12
         .x_panel
             .x_title
@@ -25,28 +25,19 @@ block lading
                             i.fa.fa-close
                 .clearfix
             .x_content.extrapadding
-                    table.table.table-striped#ladingList
-                                thead
-                                    th ID
-                                    th Merk
-                                    th Knop
-                                tbody
                     table.table.table-striped
                         thead
-                            th ID
-                            th Datum open
-                            th Datum gesloten
-                            th Aantal krat
-                            th
+                            th UserID
+                            th Naam
+                            th Datum
+                            th Aantal
                         tbody
                             each item in rows
                                 tr
-                                td= item.LADINGID
-                                td= item.DATUM_OPENED
-                                td= item.DATUM_CLOSED
-                                td= item.AANTALKRAT
+                                td= item.USERID
                                 td
-                                    a(href='ladingen/' + item.LADINGID) Info
+                                td
+                                td= item.AANTAL
 
     append head
         script(src='/javascript/dashboard/ladingen.js')
