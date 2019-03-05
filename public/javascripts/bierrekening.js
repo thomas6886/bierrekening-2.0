@@ -174,13 +174,27 @@ $(function(){
     })
 });
 
+// sidebar
+
+$(function(){
+    var width = 100;
+    var $menu = $('#sidebar');
+    var i = 0;
+    $('.menu-button').on("click", function() {
+
+
+        if (i==0) {
+            $menu.animate({'margin-left': 0}, 1000);
+            i = 1;
+        } else {
+            $menu.animate({'margin-left': -100}, 1000);
+            i = 0;
+        }
 
 
 
-
-
-
-
+    })
+});
 
 
 

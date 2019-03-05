@@ -147,9 +147,7 @@ h {
 }
 
 /*START BOOTSTRAP EDIT*/
-.container-fluid {
-    padding: 0px 15px;
-}
+
 
 .col-2 {
     padding: 0px;
@@ -241,6 +239,20 @@ div.itemblock {
     background-color: #ffff00 !important;
 
 }
+/*sidebarr*/
+.sidebar {
+    margin-left:-100%;
+    z-index: 100;
+    width: 10vw;
+    padding-bottom: 10px;
+    position: absolute;
+    background-color: grey;
+    float: left;
 
+}
 
+.sidebar-button {
+    margin-left: auto;
+    margin-right: auto;
 
+}
